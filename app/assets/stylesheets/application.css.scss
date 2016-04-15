@@ -13,15 +13,13 @@
  *= require_tree .
  *= require_self
  *= require bootstrap/css/bootstrap
- *= require fonts/font-awesome/css/font-awesome
- *= require fonts/fontello/css/fontello
+ *= require font-awesome
  *= require plugins/magnific-popup/magnific-popup
- *= require plugins/rs-plugin/css/settings
  *= require css/animations
  *= require plugins/owl-carousel/owl.carousel
  *= require plugins/owl-carousel/owl.transitions
  *= require plugins/hover/hover-min
- *= require css/style
+ *= require ../css/style
  *= require css/skins/purple
  *= require css/custom
  */
