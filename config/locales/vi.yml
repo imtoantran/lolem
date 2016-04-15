@@ -1,0 +1,804 @@
+vi:
+  activerecord:
+    models:
+      shoppe/country:
+        one: Quốc gia
+        other: Quốc gia
+      shoppe/delivery_service:
+        one: Dịch vụ Giao hàng
+        other: Dịch vụ Giao hàng
+      shoppe/delivery_service_price:
+        one: Giá 
+        other: Giá
+      shoppe/order:
+        one: Đơn hàng
+        other: Đơn hàng
+      shoppe/order_item:
+        one: Order item
+        other: Order items
+      shoppe/payment:
+        one: Payment
+        other: Payments
+      shoppe/Sản phẩm:
+        one: Sản phẩm
+        other: Sản phẩm
+      shoppe/product_attribute:
+        one: Thuộc tính Sản phẩm
+        other: Thuộc tính Sản phẩm
+      shoppe/product_category:
+        one: Danh mục Sản phẩm
+        other: Danh mục Sản phẩm
+      shoppe/setting:
+        one: Cài đặt
+        other: Cài đặt
+      shoppe/stock_level_adjustment:
+        one: Stock Level Adjustment
+        other: Stock Level Adjustments
+      shoppe/tax_rate:
+        one: Thuế
+        other: Thuế
+      shoppe/user:
+        one: Người dùng
+        other: Người dùng
+    attributes:
+      shoppe/order:
+        billing_address1: Địa chỉ thanh toán 1
+        billing_address3: Địa chỉ thanh toán 3
+        billing_address4: Địa chỉ thanh toán 4
+        billing_country: Quốc gia
+        billing_postcode: Billing postcode
+        delivery_address1: Địa chỉ giao hàng 1
+        delivery_address3: Địa chỉ giao hàng 3
+        delivery_address4: Địa chỉ giao hàng 4
+        delivery_country: Quốc gia
+        delivery_name: Tên người nhận hàng
+        delivery_service_id: Dịch vụ giao hàng
+        delivery_postcode: Delivery postcode
+        email_address: E-Mail address
+        first_name: First name
+        last_name: Last name
+        phone_number: Số điện thoại
+        status: Trạng thái
+        token: Token
+      shoppe/country:
+        name: Tên
+      shoppe/delivery_service:
+        name: Tên
+        courier: Courier
+      shoppe/delivery_service_price:
+        code: Code
+        cost_price: Cost price
+        max_weight: Max weight
+        min_weight: Min weight
+        price: Price
+      shoppe/order_item:
+        ordered_item: Ordered Item
+        quantity: Số lượng
+      shoppe/payment:
+        amount: Amount
+        method: Method
+        reference: Reference
+      shoppe/Sản phẩm:
+        cost_price: Cost price
+        description: Description
+        name: Name
+        permalink: Permalink
+        price: Giá
+        short_description: Short description
+        sku: SKU
+        weight: Khối lượng
+      shoppe/product_attribute:
+        key: Key
+      shoppe/product_category:
+        name: Tên
+        permalink: Permalink
+      shoppe/setting:
+        key: Key
+        value: Value
+        value_type: Value type
+      shoppe/stock_level_adjustment:
+        adjustment: Adjustment
+        description: Description
+        must_be_greater_or_equal_zero: must be greater or less than zero
+      shoppe/tax_rate:
+        address_type: Address type
+        name: Tên
+        rate: Tỉ giá
+      shoppe/user:
+        email_address: E-Mail address
+        first_name: First name
+        last_name: Last name
+        password: Mật khẩu
+        password_confirmation: Xác nhận mật khẩu
+    errors:
+      template:
+        body: ! 'There were problems with the following fields:'
+        header:
+          one: 1 error prohibited this %{model} from being saved
+          many: ! '%{count} errors prohibited this %{model} from being saved'
+          other: ! '%{count} errors prohibited this %{model} from being saved'
+      models:
+        shoppe/product_category:
+          attributes:
+            permalink:
+              wrong_format: "can only contain letters, numbers, - and _"
+        shoppe/delivery:
+          attributes:
+            delivery_service_id:
+              must_be_specified: must be specified
+              not_suitable: is not suitable for this order
+        shoppe/order:
+          attributes:
+            delivery_service_id:
+              must_be_specified: Must be specified
+        shoppe/Sản phẩm:
+          attributes:
+            permalink:
+              wrong_format: "can only contain letters, numbers, - and _"
+            base:
+              can_belong_to_root: can only belong to a root Sản phẩm
+        shoppe/order_item:
+          attributes:
+            quantity:
+              too_high_quantity: is too high for the quantity in stock
+        shoppe/payment:
+          refund_failed: "Refunds must be less than the payment (%{refundable_amount})"
+
+  will_paginate:
+    next_label: "Next &#8594;"
+    page_gap: "&hellip;"
+    previous_label: "&#8592; Previous"
+
+    page_entries_info:
+
+      single_page:
+        zero:  "No %{model} found"
+        one:   "Displaying 1 %{model}"
+        other: "Displaying all %{count} %{model}"
+
+      single_page_html:
+        zero:  "No %{model} found"
+        one_html:   "Displaying <b>1</b> %{model}"
+        other_html: "Displaying <b>all&nbsp;%{count}</b> %{model}"
+
+      multi_page: "Displaying %{model} %{from} - %{to} of %{count} in total"
+      multi_page_html: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> in total"
+
+  helpers:
+    number_to_weight:
+      kg: kg
+    page_entries_info:
+      one_page:
+        display_entries: Display Entries
+    attachment_preview:
+      delete: Xóa
+      delete_confirm: Are you sure you wish to remove this attachment?
+      no_attachment: No attachment
+
+  shoppe:
+
+    # common
+    cancel: Hủy
+    close: Đóng
+    delete: Xóa
+    edit: Sửa
+    import: Import
+    remove: Remove
+
+    removed_it: "%{it} has been removed successfully"
+    save_settings: Lưu cài đặt
+    separate_delivery_address: Separate delivery address
+    service_available: Service will be available for use
+    service_default: Service will be used by default (if possible)
+    settings_title: Cài đặt
+    settings_not_in_demo: You cannot make changes to settings in demo mode. Sorry about that.
+    set_prices: Thiết lập giá
+    shoppe_back: Back to Shoppe
+    sku: SKU
+    status: Trạng thái
+    stock: Stock
+    stock_current: Current stock level is
+    stock_control: Stock Control
+    stock_control_enable: Enable stock control for this Sản phẩm?
+    stock_levels: Stock levels
+    stock_levels_for: Stock levels %{item}
+    stock_none: No stock
+    system_settings: Thiết lập Hệ thống
+    tax_rate: Thuế
+    tax_rate_apply_to: Apply to orders where the %{to} matches one of the countries below
+    tax_rate_delete_confirm: Are you sure you wish to remove this tax_rate?
+    tax_rate_details: Thông tin tỉ giá
+    tax_rate_new: Tạo Tỉ giá thuế
+    tax_rate_note: Do NOT edit tax rates that are already in use.
+      Care should be taken when editing tax rates, as this may affect existing orders.
+      while creating a new tax rate, you must delete it and create a new one. When you delete a tax rate
+      it is not removed from the system, only deactivated, so existing orders stay unaffected.
+    tax_rates: Thuế
+    tax_rates_back: Back to tax rates
+    tax_none: Không thuế
+    telephone: Telephone
+    total: Tổng
+    total_weight: Tổng khối lượng
+    tracking_url: Tracking URL
+    unknown: Không biết
+    updated_it: "%{it} has been updated successfully"
+    users: Người dùng
+    users_back: Trở lại danh sách người dùng
+    user_delete_confirm: Are you sure you wish to remove this user?
+    user_details: Chi tiết Người dùng
+    user: Người dùng
+    user_edit: Chỉnh sửa Người dùng
+    user_new: Tạo mới Người dùng
+    user_not_in_demo: You cannot make changes to users in demo mode. Sorry about that.
+    user_not_yourself: You cannot remove yourself
+    variants: Variants
+    variants_back: Back to variants
+    variants_of: Variants of %{products}
+    variant_delete_confirm: Are you sure you wish to remove this variant?
+    variant_of: Variant of %{product}
+    variant_new: New variant
+    variant_save: Save Variant
+    value: Value
+    website_properties: Website Properties
+    weight: Khối lượng
+    weight_allowance: Weight Allowance
+
+    submit: Gửi
+    posts:
+      posts: Bài viết
+      edit: Sửa bài viết
+      update_notice: Cập nhật thành công
+      title: Tiêu đề
+      excerpt: Mô tả
+      descriptions: Thông tin bài viết
+      attachments: Hình ảnh
+      default_image: Hình ảnh mặc định
+    post_category:
+      choose_post_category: Chọn danh mục
+      post_categories: Danh mục bài viết
+      edit: Sửa danh mục
+      name: Tên danh mục
+    attachments:
+      remove_notice: Attachment removed successfully
+
+    countries:
+      back: Back to countries
+      continent: Continent
+      countries: Quốc gia
+      country_details: Chi tiết Quốc gia
+      create_notice: Quốc gia đã được tạo thành công
+      delete_confirmation: Are you sure you wish to remove this country?
+      destroy_notice: Country has been removed successfully
+      eu?: EU?
+      eu_member: EU Member?
+      is_eu_member: Country is an EU member?
+      iso_alpha_2: ISO 3166-1-alpha-2
+      iso_alpha_3: ISO 3166-1-alpha-3
+      name: Name
+      new_country: New country
+      tld: TLD
+      update_notice: Quốc gia đã được cập nhật thành công
+
+    delivery_service_prices:
+      all_countries: Tất cả 
+      back: Back to prices
+      back_to_delivery_services: Back to delivery services
+      code: Code
+      cost: Cost
+      cost_price: Cost price
+      countries: Quốc gia
+      create_notice: Price has been created successfully
+      delivery_services: Delivery Services
+      destroy_notice: Price has been removed successfully
+      identification_weight: Identification & Weight
+      max_weight: Max weight
+      min_weight: Min weight
+      new_price: New price
+      no_tax: No tax
+      price: Price
+      pricing: Pricing
+      pricing_for: "Delivery Pricing for %{delivery_name}"
+      tax_rate: Tax rate
+      update_notice: Price has been updated successfully
+      weight_allowance: Weight Allowance
+
+      help:
+        countries: This delivery rate will only be available to orders where the country selected is listed here.
+
+    delivery_services:
+      active?: Active?
+      active: Active
+      active_info: Service will be available for use
+      back: Back to delivery services
+      code: Code
+      courier: Courier
+      courier_name: Courier name
+      create_notice: Delivery Service has been created successfully
+      default?: Default?
+      default: Default
+      default_info: Service will be used by default (if possible)
+      delivery_services: Delivery Services
+      destroy_notice: Delivery Service has been removed successfully
+      delete_confirmation: Are you sure you wish to remove this delivery service?
+      details: Details
+      name: Name
+      new: New delivery service
+      no_services: No delivery services to display.
+      prices: Prices
+      set_prices: Set Prices
+      tracking_url: Tracking URL
+      tracking_url_help_html: Use <code>{{consignment_number}}</code> to insert the consignment number.
+      update_notice: Delivery Service has been updated successfully
+
+    imports:
+      example_file: Example Format
+      file_upload: File for Import
+      required_formats: Must be csv, xls or xlsx.
+      errors:
+        no_file: No file chosen for import
+        unknown_format: "Unknown file format: %{filename}"
+
+    orders:
+      accept: Chấp nhận
+      accept_notice: Order has been accepted successfully
+      add_payment: Add payment
+      add_item: Add an item
+      address: Address
+      amount: Amount
+      back_to_order: Back to order
+      back_to_orders: Back to orders
+      billing_address: Địa chỉ thanh toán
+      billing_delivery_address: Billing/Delivery Address
+      build_time: Build time
+      company: Company
+      consignment_number: Consignment Number
+      cost: Cost
+      country: Quốc gia
+      create_order: Tạo đơn hàng
+      create_notice: Order has been created successfully
+      customer: Khách hàng
+      delivery_address: Delivery address
+      delivery_name: Delivery name
+      edit_order: Edit order
+      email_address: E-Mail address
+      first_name: First name
+      from_payment: from payment
+      id: ID
+      in_progress_warning: This order is still being built by the customer in your store. At present you can only view the items which are within the order.
+      invoice_number: Invoice number
+      insufficient_stock_order: "Insufficient stock to order %{out_of_stock_items}. Quantities have been updated to max total stock available."
+      item: Item
+      last_name: Last name
+      mark_as_shipped: Mark as shipped
+      method: Method
+      missing_delivery_service: No suitable delivery service available, order cannot be created without an associated delivery service.
+      name: Name
+      new_order: Tạo đơn hàng
+      no_delivery_required: No delivery required for this order.
+      no_orders: No orders to display.
+      no_payments: There are no payments recorded for this order...
+      notes: Notes
+      number: Number
+      order: Order
+      order_accepted: Order Accepted
+      order_balance: Order Balance
+      order_items: Order items
+      order_no_html: "Order <b>#%{order_number}</b>"
+      order_number: Order number
+      order_received: Order Received
+      order_rejected: Order Rejected
+      order_shipped: Order Shipped
+      ordered_products: Ordered products
+
+      orders: Đơn hàng
+      payment: Payment
+      payment_remove_confirmation: Are you sure you wish to remove this payment?
+      payments: Payments
+      phone_number: Phone number
+      post_code: Post code
+      price: Price
+      product: Sản phẩm
+      products: Sản phẩm
+      qty: Qty
+      quantity: Quantity
+      received_between: Received between
+      reference: Reference
+      refund: Refund
+      refunded?: Refunded?
+      reject: Reject
+      reject_notice: Order has been rejected successfully
+      save_order: Save order
+      search: Tìm
+      search_orders: Tìm
+      select_country: Select a country
+      customer: Khách hàng
+      select_customer: Select a customer or leave blank
+      separate_delivery_address: Separate delivery address
+      ship_notice: Order has been shipped successfully
+      sku: SKU
+      sla_warning: Any changes to quantities will update the appropriate stock levels for the associated Sản phẩm.
+      status: Trạng thái
+      stock: Stock
+      sub_total: Sub-Total
+      tax: Tax
+      telephone: Telephone
+      total: Tổng
+      type: Type
+      unit_price: Unit price
+      update_notice: Order has been saved successfully
+      use_separate_delivery_address?: Use a separate delivery address?
+      weight: Weight
+
+      status_bar:
+        by_user: "by %{user}"
+        consignment_no_html: "Consignment #<b>%{consignment_number}</b>"
+        from_ip: "from %{ip}"
+        on_date: "on %{on}"
+        tracking_url:  Tracking URL
+
+      despatch_note:
+        despatch_note: Despatch note
+        footer: Thank you for your order!
+        order_number: Order number
+        order_placed: Order placed
+        packed?: Packed?
+        Sản phẩm: Sản phẩm
+        quantity: Quantity
+        sku: SKU
+        telephone: Telephone
+        total_weight: Tổng khối lượng
+        weight: Khối lượng
+
+      statuses:
+        accepted: Accepted
+        building: Building
+        confirming: Confirming
+        received: Received
+        rejected: Rejected
+        shipped: Shipped
+
+    product_category:
+      attachments: Attachments
+      back_to_categories: Back to categories list
+      category_details: Mô tả danh mục
+      choose_product_category: Chọn danh mục Sản phẩm
+      create_notice: Danh mục đã được tạo thành công
+      delete_confirmation:  Are you sure you wish to remove this category?
+      description: Description
+      destroy_notice: Category has been removed successfully
+      destroy_alert: Category could not be removed
+      image: Image
+      name: Name
+      new_category: Danh mục mới
+      no_categories: Không tìm thấy danh mục nào.
+      permalink: Permalink
+      permalink_includes_ancestors: Prefix links in store with ancestor categories
+      product_categories: Danh mục Sản phẩm
+      update_notice: Category has been updated successfully
+      nesting:
+        blank_option: None
+        category_nesting: Nesting
+        category_parent: Parent
+        current_category: Current
+        no_children: No Children
+        hierarchy: Hierarchy
+
+    products:
+      add_attachments: View/add attachments
+      add_attribute: Thêm thuộc tính
+      attachments: Attachments
+      attributes: Attributes
+      back_to_products: Trở lại danh mục sản phẩm
+      cost_price: Cost price
+      create_notice: Sản phẩm đã được tạo thành công
+      datasheet: Datasheet
+      default_image: Hình ảnh mặc định
+      description: Mô tả
+      destroy_notice: Sản phẩm đã được xóa thành công
+      edit: Sửa
+      enable_stock_control?:  Enable stock control for this Sản phẩm?
+      featured?: Featured?
+      featured_info:  If checked, this Sản phẩm will appear on your homepage
+      import_products: Import products
+      in_the_box: "What's in the box?"
+      name: Name
+      new_product: Tạo mới Sản phẩm
+      no_products: Không tìm thấy sản phẩm nào.
+      no_stock: No stock
+      no_tax: No tax
+      on_sale?: On sale?
+      on_sale_info:  If checked, this Sản phẩm will be displayed within the public store
+      permalink: Permalink
+      price: Giá
+      price_variants: Price/Variants
+      pricing: Pricing
+      product_category: Sản phẩm category
+      product_information: Sản phẩm Information
+      products: Sản phẩm
+      public?: Public?
+      remove: Xóa
+      searchable?: Searchable?
+      short_description: Short description
+      sku: SKU
+      stock: Stock
+      stock_control: Stock Control
+      stock_levels: Stock levels
+      tax_rate: Tax rate
+      value: Value
+      variants: Variants
+      update_notice: Sản phẩm has been updated successfully
+      website_properties: Website Properties
+      weight: Weight
+
+      filter:
+        sku: filter by Sản phẩm sku
+        name_or_description: filter by Sản phẩm name or description
+
+      imports:
+        help: Products and Categories are matched by name.  If no Sản phẩm is found, a new one will be created with all the attributes on the line.  If a Sản phẩm is found, only the quantity will be updated and all other fields will be ignored.  If no category is found, one with that name will be created .  One Sản phẩm per line. You can leave permalink field empty if you don't want to add one and to be generated automatically.
+        success: Products imported successfully
+        examples:
+          first:
+            name: Plush Teddy Bear
+            sku: BEAR001
+            permalink: plush-teddy-bear
+            description: Fantastically plush. Very cuddly. Great for all ages.
+            short_description: Buy this for your kids.
+            weight: 1.2
+            price: 84.95
+            category_name: Teddy Bears
+            qty: 20
+          second:
+            name: Standard Teddy Bear
+            sku: BEAR002
+            permalink: ""
+            description: Made out of PVC. A little cuddly. Spill resistant.
+            short_description: Buy this for those with two left thumbs.
+            weight: 0.6
+            price: 24.95
+            category_name: Teddy Bears
+            qty: 100
+          third:
+            name: Stick Teddy Bear
+            sku: BEAR003
+            permalink: stick-teddy-bear
+            description: Made out of sticks. Not really cuddly. All natural. Fire hazard.
+            short_description: Buy this for that distant aunt who collects bears.
+            weight: 0.521
+            price: 1.95
+            category_name: Teddy Bears
+            qty: 50
+
+    refund:
+      intro_html: "To issue a refund for this payment, just enter the amount you wish to refund below and click 'Refund'.  The maximum you can refund is <b>%{amount}</b>."
+      issue_refund: Issue Refund
+      refund: Refund
+
+    sessions:
+      admin_login: Admin Login
+      create_alert: The email address and/or password you have entered is invalid. Please check and try again.
+      back_to_login: Back to login
+      email:  Địa chỉ Email
+      login: Đăng nhập
+      password: Mật khẩu
+      reset: Reset
+      reset_password: Reset your password
+      reset_password?: Reset your password?
+      reset_alert: No user was found matching the e-mail address
+      reset_notice: "An e-mail has been sent to %{email_address} with a new password"
+
+    shared:
+      back_to_shoppe: Back to Shoppe
+      error: Error
+      error_occurred: Có lỗi xảy ra
+
+    stock_level_adjustments:
+      add: Add
+      adjustment: Adjustment
+      back_to_product: Back to Sản phẩm list
+      create_notice: Adjustment has been added successfully
+      current_stock_level_html: "Current stock level is <b>%{item_stock}</b>"
+      date: Date
+      description: Description
+      edit_product: Edit Sản phẩm
+      invalid_item_type: "Invalid item_type (must be one of %{suitable_objects})"
+      stock_levels_for: "Stock Levels for %{item_name}"
+      stock_levels_title: "Stock Levels - %{item_name}"
+
+    tax_rates:
+      address_type_option: "Apply to orders where the %{address} address matches one of the countries below"
+      all_countries: All countries
+      back_to_tax_rates: Back to tax rates
+      billing: billing
+      country_restriction: Country Restriction
+      create_notice: Tax rate has been created successfully
+      delete_confirmation: Are you sure you wish to remove this tax rate?
+      delivery: delivery
+      destroy_notice: Tax rate has been removed successfully
+      name: Name
+      new_tax_rate: Tạo thuế mới
+      rate: Tỉ giá
+      rate_details: Rate Details
+      tax_rates: Tỉ giá thuế
+      update_notice: Tax rate has been updated successfully
+
+    users:
+      back_to_users: Trở lại danh sách người dùng
+      create_notice: User has been created successfully
+      delete_confirmation:  Are you sure you wish to remove this user?
+      demo_mode_error: You cannot make changes to users in demo mode. Sorry about that.
+      destroy_notice: User has been removed successfully
+      email: E-Mail Address
+      first_name: First name
+      last_name: Last name
+      login: Đăng nhập
+      name: Name
+      new_user: New user
+      password: Mật khẩu
+      password_confirmation: ...and again
+      self_remove_error: You cannot remove yourself
+      update_notice: User has been updated successfully
+      user_details: Chi tiết người dùng
+      users: Người dùng
+
+    variants:
+      back_to_variants: Back to variants
+      cost_price: Cost price
+      create_notice: Variant has been added successfully
+      default_variant?: Default variant?
+      default_variant_info: If checked, this variant will be the default
+      delete_confirmation: Are you sure you wish to remove this variant?
+      destroy_notice: Variant has been removed successfully
+      edit_product: Edit Sản phẩm
+      edit_variant: New variant
+      enable_stock_control?: Enable stock control for this Sản phẩm?
+      image: Hình ảnh
+      name: Name
+      no_products: Không tìm thấy sản phẩm nào.
+      no_stock: No stock
+      no_tax: No tax
+      new_variant: New variant
+      on_sale?: On sale?
+      on_sale_info: If checked, this Sản phẩm will be displayed within the public store
+      permalink: Permalink
+      price: Price
+      pricing: Pricing
+      product_information: Sản phẩm Information
+      save_variant: Save Variant
+      sku: SKU
+      stock: Stock
+      stock_control: Stock Control
+      tax_rate: Tax rate
+      update_notice: Variant has been updated successfully
+      variants: Variants
+      variants_of: "Variants of %{product}"
+      website_properties: Website Properties
+      weight: Khối lượng
+
+    payments:
+      create_notice: Payment has been added successfully
+      destroy_notice: Payment has been removed successfully
+      refund_notice: Refund has been processed successfully.
+
+    localisations:
+      localisations: Localisations
+      back: Back
+      back_to_localisations: Back
+      localisations_of: Localisations of %{name}
+      product_information: Sản phẩm Information
+      locales: Locales
+      choose_locale: Please choose a locale
+      save_localisation: Save Localisation
+      new_localisation: New Localisation
+      edit_localisation: Edit Localisation
+      localisation_created: Localisation created successfully
+      localisation_updated: Localisation updated successfully
+      localisation_destroyed: Localisation destroyed successfully
+      language: Ngôn ngữ
+      no_localisations: No localisations to display.
+      delete_confirmation: Are you sure?
+
+    customers:
+      customers: Khách hàng
+      new_customer: Tạo mới khách hàng
+      search_customer: Tìm khách hàng
+      name: Name
+      company: Công ty
+      email: E-Mail
+      phone: Phone
+      mobile_phone: Mobile phone
+      no_customers: No customers to display.
+      search: Search
+      first_or_last_name: First or last name
+      back_to_customers_list: Back to customer list
+      new_address: Tạo địa chỉ
+      edit: Sửa
+      customer_information: Thông tin khách hàng
+      cancel: Hủy
+      first_name: First name
+      last_name: Last name
+      delete: Xóa
+      save: Lưu
+      creating_customer: Đang tạo Khách hàng...
+      updating_customer: Đang cập nhật Khách hàng...
+      delete_confirmation: Bạn có muốn xóa Khách hàng này không?
+      type: Type
+      default: Mặc định
+      address: Địa chỉ
+      no_addresses: No addresses to display.
+      addresses: Địa chỉ
+      adresse: Địa chỉ
+      created_successfully: Khách hàng đã được tạo thành công.
+      updated_successfully: Khách hàng đã được cập nhật thành công.
+      deleted_successfully: Khách hàng đã được xóa thành công.
+
+    addresses:
+      created_successfully: Address has been created successfully.
+      updated_successfully: Address has been updated successfully.
+      deleted_successfully: Address has been deleted successfully.
+
+    navigation:
+      admin_primary:
+        customers: Khách hàng
+        orders: Đơn hàng
+        products: Sản phẩm
+        product_categories: Danh mục Sản phẩm
+        delivery_services: Dịch vụ Giao hàng
+        tax_rates: Thuế
+        users: Người dùng
+        countries: Quốc gia
+        settings: Cài đặt
+        posts: Bài viết
+        post_categories: Danh mục bài viết
+
+    settings:
+
+      settings: Cài đặt
+      system_settings: Cài đặt Hệ thống
+      demo_mode_error: You cannot make changes to settings in demo mode. Sorry about that.
+      update_notice:  Cài đặt đã được cập nhật thành công.
+
+      types:
+        # Force certain settings to certain type
+        demo_mode: boolean
+
+      labels:
+        # Labels for fields go here
+        email_address: Store E-Mail Address
+        store_name: Tên cửa hàng
+        currency_unit: Đơn vị tiền tệ
+        tax_name: Tên thuế
+        demo_mode: Demo Mode
+
+      options:
+        # Options for boolean settings
+        demo_mode:
+          affirmative: Kích hoạt
+          negative: Vô hiệu hóa
+
+      help:
+        # Help text for individual fields
+        currency_unit: The symbol to be displayed before all numbers which relate to money. Only applies to the admin interface and must be implemented separately in your base application.
+        demo_mode: If enabled, your Shoppe admin interface will allow any users to login and will not permit changes to your users. This should be used with caution and never enabled for a production store.
+        email_address: The e-mail address to use when sending outbound messages. Must just be an e-mail address.
+        store_name: This is the name of your store which will be used through the Shoppe admin interface as well as in the default outbound e-mail messages.
+        tax_name: The name for "Tax" which will be displayed in your admin interface. Commonly replaced with VAT in European countries.
+
+      save_settings: Lưu Cài đặt
+      page_title: Cài đặt
+
+      defaults:
+        currency_unit: $
+        demo_mode: false
+        email_address: info@vicdina.com
+        store_name: Vicdina.
+        tax_name: Tax
+
+
+
+  layouts:
+    shoppe:
+      application:
+        goto: Tới
+        logged_in_as: "Đã đăng nhập với %{user_name}"
+        logout: Đăng xuất

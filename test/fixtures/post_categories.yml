@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  text: MyString
+  permalink: MyString
+  text: MyString
+  description: MyString
+  text: MyString
+  parent_id: MyString
+  integer: MyString
+  depth: MyString
+  integer: MyString
+  ancestral_permalink: MyString
+  text: MyString
+
+two:
+  name: MyString
+  text: MyString
+  permalink: MyString
+  text: MyString
+  description: MyString
+  text: MyString
+  parent_id: MyString
+  integer: MyString
+  depth: MyString
+  integer: MyString
+  ancestral_permalink: MyString
+  text: MyString

@@ -1,0 +1,21 @@
+- @page_title = t("shoppe.posts.posts")
+
+= content_for :header do
+  %h2.settings= t("shoppe.posts.posts")
+
+.table
+  %table.data
+    %thead
+      %tr
+        %th= t('shoppe.posts.title')
+        %th= t('shoppe.posts.content')
+    %tbody
+      - if @posts.empty?
+        %tr.empty
+          %td{colspan: 5}= t('shoppe.posts.no_posts')
+      - else
+        - for post in @posts
+          %tr
+            %td= link_to post.title, post
+            %td= link_to post.full_content, [:edit, post]
+= paginate @posts

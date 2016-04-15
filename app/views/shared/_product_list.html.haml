@@ -1,0 +1,1027 @@
+/ section start
+.light-gray-bg.section
+  .container
+    / filters start
+    .sorting-filters.text-center.mb-20
+      %form.form-inline
+        .form-group
+          %label Sort by
+          %select.form-control
+            %option{:selected => "selected"} Date
+            %option Price
+            %option Model
+        .form-group
+          %label Order
+          %select.form-control
+            %option{:selected => "selected"} Acs
+            %option Desc
+        .form-group
+          %label Price $ (min/max)
+          .row.grid-space-10
+            .col-sm-6
+              %input.form-control{:type => "text"}
+            .col-sm-6
+              %input.form-control.col-xs-6{:type => "text"}
+        .form-group
+          %label Category
+          %select.form-control
+            %option{:selected => "selected"} Smartphones
+            %option Tablets
+            %option Smart Watches
+            %option Desktops
+            %option Software
+            %option Accessories
+        .form-group
+          %a.btn.btn-default{:href => "#"} Submit
+  / filters end
+  / section end
+  // main-container start
+%section.main-container
+  .container
+    .row
+      / main start
+      / ================
+      .main.col-md-9
+        / pills start
+        / ================
+        / Nav tabs
+        %ul.nav.nav-pills{:role => "tablist"}
+          %li.active
+            %a{"data-toggle" => "tab", :href => "#pill-1", :role => "tab", :title => "Latest Arrivals"}
+              %i.icon-star
+              Latest Arrivals
+          %li
+            %a{"data-toggle" => "tab", :href => "#pill-2", :role => "tab", :title => "Featured"}
+              %i.icon-heart
+              Featured
+          %li
+            %a{"data-toggle" => "tab", :href => "#pill-3", :role => "tab", :title => "Top Sellers"}
+              %i.icon-up-1
+              Top Sellers
+        / Tab panes
+        .tab-content.clear-style
+          #pill-1.tab-pane.active
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    =image_tag "product-1.jpg",:alt=>""
+                    %a.overlay-link{:href => "shop-product.html"}
+                      %i.fa.fa-plus
+                      %span.badge 30% OFF
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      %a{:href => "shop-product.html"} Consectetur adipisicing elit
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, cum repellat nisi quaerat mollitia reiciendis totam repellendus dicta id dolorem voluptate debitis molestias molestiae asperiores, odit magni vitae placeat optio.
+                    .elements-list.clearfix
+                      %span.price
+                        %del $199.00
+                        $150.00
+                      %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                        Add To Cart
+                        %i.fa.fa-shopping-cart
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    = image_tag "product-2.jpg",:alt=>""
+                    %a.overlay-link{:href => "shop-product.html"}
+                      %i.fa.fa-plus
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      %a{:href => "shop-product.html"} Lorem ipsum dolor sit amet
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi.
+                    %ul.list-icons
+                      %li
+                        %i.icon-check
+                        Lorem ipsum dolor sit amet
+                      %li
+                        %i.icon-check
+                        Consectetur adipisicing elit
+                      %li
+                        %i.icon-check
+                        Totam doloribus mollitia ipsum
+                    .elements-list.clearfix
+                      %span.price $160.00
+                      %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                        Add To Cart
+                        %i.fa.fa-shopping-cart
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    = image_tag "product-3.jpg",:alt=>""
+                    %a.overlay-link{:href => "shop-product.html"}
+                      %i.fa.fa-plus
+                    %span.badge 40% OFF
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      %a{:href => "shop-product.html"} Facilis eos nobis quas asperiores amet
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet aliquid eius nostrum sint molestias ad. Reprehenderit molestias vitae aperiam possimus nostrum tempora doloremque sunt, deserunt, at, dolore similique maxime a!
+                    .elements-list.clearfix
+                      %span.price
+                        %del $199.00
+                        $150.00
+                      %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                        Add To Cart
+                        %i.fa.fa-shopping-cart
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    = image_tag "product-4.jpg",:alt=>""
+                    %a.overlay-link{:href => "shop-product.html"}
+                      %i.fa.fa-plus
+                    %span.badge 50% OFF
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      %a{:href => "shop-product.html"} Dolorem quam delectus eos nostrum
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus tempora harum, debitis asperiores ad alias ab Laborum dolore possimus necessitatibus ad. Quis rerum aspernatur commodi. Blanditiis ex recusandae perspiciatis totam.
+                    .elements-list.clearfix
+                      %span.price
+                        %del $199.00
+                        $100.00
+                      %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                        Add To Cart
+                        %i.fa.fa-shopping-cart
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    = image_tag "product-5.jpg",:alt=>""
+                    %a.overlay-link{:href => "shop-product.html"}
+                      %i.fa.fa-plus
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      %a{:href => "shop-product.html"} Corporis, rem assumenda officia
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star
+                      %i.fa.fa-star
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet soluta hic totam adipisci cumque veniam, placeat tempora possimus suscipit optio in magni, molestiae consectetur at quidem omnis, commodi perferendis accusamus
+                    .elements-list.clearfix
+                      %span.price $80.00
+                      %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                        Add To Cart
+                        %i.fa.fa-shopping-cart
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    = image_tag "product-6.jpg",:alt=>""
+                    %a.overlay-link{:href => "shop-product.html"}
+                      %i.fa.fa-plus
+                    %span.badge 35% OFF
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      %a{:href => "shop-product.html"} Perferendis necessitatibus dolorum delectus
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam officiis distinctio vero ea quaerat sed quidem magnam, expedita voluptatum eius similique facere veritatis vitae molestiae commodi obcaecati, nemo fuga pariatur.
+                    .elements-list.clearfix
+                      %span.price
+                        %del $50.00
+                        $32.50
+                      %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                        Add To Cart
+                        %i.fa.fa-shopping-cart
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    = image_tag "product-7.jpg",:alt=>""
+                    %a.overlay-link{:href => "shop-product.html"}
+                      %i.fa.fa-plus
+                    %span.badge 30% OFF
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      %a{:href => "shop-product.html"} Fugiat nemo enim officiis repellendus
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis nobis necessitatibus, nam ipsa tempore repellendus iusto ducimus nulla corporis dignissimos quam ullam accusantium nostrum ex quibusdam qui, optio numquam suscipit.
+                    .elements-list.clearfix
+                      %span.price
+                        %del $300.00
+                        $210.00
+                      %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                        Add To Cart
+                        %i.fa.fa-shopping-cart
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    = image_tag "product-8.jpg",:alt=>""
+                    %a.overlay-link{:href => "shop-product.html"}
+                      %i.fa.fa-plus
+                    %span.badge 10% OFF
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      %a{:href => "shop-product.html"} Est ipsa quod sit dolorum alias suscipit
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star
+                      %i.fa.fa-star
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non nemo, delectus nihil, sequi voluptas ratione tempora odit dolores inventore hic sit reprehenderit dolor aliquam commodi earum numquam soluta praesentium! Cum.
+                    .elements-list.clearfix
+                      %span.price
+                        %del $199.00
+                        $180.00
+                      %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                        Add To Cart
+                        %i.fa.fa-shopping-cart
+          #pill-2.tab-pane
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    = image_tag "product-2.jpg",:alt=>""
+                    %a.overlay-link{:href => "shop-product.html"}
+                      %i.fa.fa-plus
+                    %span.badge 20% OFF
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      %a{:href => "shop-product.html"} Lorem ipsum dolor sit amet
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium inventore eum, laboriosam, maxime illo odit dolores ipsam, odio, voluptatibus rerum sunt voluptate illum eligendi nihil alias ullam aspernatur numquam qui!
+                    .elements-list.clearfix
+                      %span.price
+                        %del $199.00
+                        $160.00
+                      %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                        Add To Cart
+                        %i.fa.fa-shopping-cart
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    = image_tag "product-1.jpg",:alt=>""
+                    %a.overlay-link{:href => "shop-product.html"}
+                      %i.fa.fa-plus
+                    %span.badge 30% OFF
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      %a{:href => "shop-product.html"} Consectetur adipisicing elit
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam doloribus facere nobis illum alias inventore impedit quam cum! Similique tempore dolorem accusantium sequi quam obcaecati repellendus harum, et earum veniam!
+                    .elements-list.clearfix
+                      %span.price
+                        %del $199.00
+                        $150.00
+                      %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                        Add To Cart
+                        %i.fa.fa-shopping-cart
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    = image_tag "product-4.jpg",:alt=>""
+                    %a.overlay-link{:href => "shop-product.html"}
+                      %i.fa.fa-plus
+                    %span.badge 50% OFF
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      %a{:href => "shop-product.html"} Dolorem quam delectus eos nostrum
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi.
+                    .elements-list.clearfix
+                      %span.price
+                        %del $199.00
+                        $100.00
+                      %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                        Add To Cart
+                        %i.fa.fa-shopping-cart
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    = image_tag "product-3.jpg",:alt=>""
+                    %a.overlay-link{:href => "shop-product.html"}
+                      %i.fa.fa-plus
+                    %span.badge 40% OFF
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      %a{:href => "shop-product.html"} Facilis eos nobis quas asperiores amet
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi.
+                    .elements-list.clearfix
+                      %span.price
+                        %del $199.00
+                        $150.00
+                      %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                        Add To Cart
+                        %i.fa.fa-shopping-cart
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    = image_tag "product-7.jpg",:alt=>""
+                    %a.overlay-link{:href => "shop-product.html"}
+                      %i.fa.fa-plus
+                    %span.badge 30% OFF
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      %a{:href => "shop-product.html"} Fugiat nemo enim officiis repellendus
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi.
+                    .elements-list.clearfix
+                      %span.price
+                        %del $300.00
+                        $210.00
+                      %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                        Add To Cart
+                        %i.fa.fa-shopping-cart
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    = image_tag "product-5.jpg",:alt=>""
+                    %a.overlay-link{:href => "shop-product.html"}
+                      %i.fa.fa-plus
+                    %span.badge 20% OFF
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      %a{:href => "shop-product.html"} Corporis, rem assumenda officia
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star
+                      %i.fa.fa-star
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi.
+                    .elements-list.clearfix
+                      %span.price
+                        %del $99.00
+                        $80.00
+                      %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                        Add To Cart
+                        %i.fa.fa-shopping-cart
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    = image_tag "product-6.jpg",:alt=>""
+                    %a.overlay-link{:href => "shop-product.html"}
+                      %i.fa.fa-plus
+                    %span.badge 35% OFF
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      %a{:href => "shop-product.html"} Perferendis necessitatibus dolorum delectus
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi.
+                    .elements-list.clearfix
+                      %span.price
+                        %del $50.00
+                        $32.50
+                      %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                        Add To Cart
+                        %i.fa.fa-shopping-cart
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    = image_tag "product-8.jpg",:alt=>""
+                    %a.overlay-link{:href => "shop-product.html"}
+                      %i.fa.fa-plus
+                    %span.badge 10% OFF
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      %a{:href => "shop-product.html"} Est ipsa quod sit dolorum alias suscipit
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star
+                      %i.fa.fa-star
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi.
+                    .elements-list.clearfix
+                      %span.price
+                        %del $199.00
+                        $180.00
+                      %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                        Add To Cart
+                        %i.fa.fa-shopping-cart
+          #pill-3.tab-pane
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    = image_tag "product-4.jpg",:alt=>""
+                    %a.overlay-link{:href => "shop-product.html"}
+                      %i.fa.fa-plus
+                    %span.badge 50% OFF
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      %a{:href => "shop-product.html"} Dolorem quam delectus eos nostrum
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi.
+                    .elements-list.clearfix
+                      %span.price
+                        %del $199.00
+                        $100.00
+                      %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                        Add To Cart
+                        %i.fa.fa-shopping-cart
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    = image_tag "product-3.jpg",:alt=>""
+                    %a.overlay-link{:href => "shop-product.html"}
+                      %i.fa.fa-plus
+                    %span.badge 40% OFF
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      %a{:href => "shop-product.html"} Facilis eos nobis quas asperiores amet
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi.
+                    .elements-list.clearfix
+                      %span.price
+                        %del $199.00
+                        $150.00
+                      %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                        Add To Cart
+                        %i.fa.fa-shopping-cart
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    = image_tag "product-2.jpg",:alt=>""
+                    %a.overlay-link{:href => "shop-product.html"}
+                      %i.fa.fa-plus
+                    %span.badge 20% OFF
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      %a{:href => "shop-product.html"} Lorem ipsum dolor sit amet
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi.
+                    .elements-list.clearfix
+                      %span.price
+                        %del $199.00
+                        $160.00
+                      %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                        Add To Cart
+                        %i.fa.fa-shopping-cart
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    = image_tag "product-1.jpg",:alt=>""
+                    %a.overlay-link{:href => "shop-product.html"}
+                      %i.fa.fa-plus
+                    %span.badge 30% OFF
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      %a{:href => "shop-product.html"} Consectetur adipisicing elit
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi.
+                    .elements-list.clearfix
+                      %span.price
+                        %del $199.00
+                        $150.00
+                      %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                        Add To Cart
+                        %i.fa.fa-shopping-cart
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    = image_tag "product-6.jpg",:alt=>""
+                    %a.overlay-link{:href => "shop-product.html"}
+                      %i.fa.fa-plus
+                    %span.badge 35% OFF
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      %a{:href => "shop-product.html"} Perferendis necessitatibus dolorum delectus
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi.
+                    .elements-list.clearfix
+                      %span.price
+                        %del $50.00
+                        $32.50
+                      %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                        Add To Cart
+                        %i.fa.fa-shopping-cart
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    = image_tag "product-8.jpg",:alt=>""
+                    %a.overlay-link{:href => "shop-product.html"}
+                      %i.fa.fa-plus
+                    %span.badge 10% OFF
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      %a{:href => "shop-product.html"} Est ipsa quod sit dolorum alias suscipit
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star
+                      %i.fa.fa-star
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi.
+                    .elements-list.clearfix
+                      %span.price
+                        %del $199.00
+                        $180.00
+                      %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                        Add To Cart
+                        %i.fa.fa-shopping-cart
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    = image_tag "product-7.jpg",:alt=>""
+                    %a.overlay-link{:href => "shop-product.html"}
+                      %i.fa.fa-plus
+                    %span.badge 30% OFF
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      %a{:href => "shop-product.html"} Fugiat nemo enim officiis repellendus
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi.
+                    .elements-list.clearfix
+                      %span.price
+                        %del $300.00
+                        $210.00
+                      %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                        Add To Cart
+                        %i.fa.fa-shopping-cart
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    = image_tag "product-5.jpg",:alt=>""
+                    %a.overlay-link{:href => "shop-product.html"}
+                      %i.fa.fa-plus
+                    %span.badge 20% OFF
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      %a{:href => "shop-product.html"} Corporis, rem assumenda officia
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star
+                      %i.fa.fa-star
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi.
+                    .elements-list.clearfix
+                      %span.price
+                        %del $99.00
+                        $80.00
+                      %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                        Add To Cart
+                        %i.fa.fa-shopping-cart
+        / pills end
+        / pagination start
+        %nav.text-center
+          %ul.pagination
+            %li
+              %a{"aria-label" => "Previous", :href => "#"}
+                %i.fa.fa-angle-left
+            %li.active
+              %a{:href => "#"} 1
+            %li
+              %a{:href => "#"} 2
+            %li
+              %a{:href => "#"} 3
+            %li
+              %a{:href => "#"} 4
+            %li
+              %a{:href => "#"} 5
+            %li
+              %a{"aria-label" => "Next", :href => "#"}
+                %i.fa.fa-angle-right
+      / pagination end
+      / main end
+      / sidebar start
+      / ================
+      %aside.col-md-3
+        .sidebar
+          .block.clearfix
+            %h3.title Best Sellers
+            .separator-2
+            #carousel-sidebar.carousel.slide{"data-ride" => "carousel"}
+              / Indicators
+              %ol.carousel-indicators.top
+                %li.active{"data-slide-to" => "0", "data-target" => "#carousel-sidebar"}
+                %li{"data-slide-to" => "1", "data-target" => "#carousel-sidebar"}
+                %li{"data-slide-to" => "2", "data-target" => "#carousel-sidebar"}
+              / Wrapper for slides
+              .carousel-inner{:role => "listbox"}
+                .item.active
+                  .listing-item
+                    .overlay-container
+                      = image_tag "product-1.jpg",:alt=>"product 1"
+                      %span.badge 30% OFF
+                      %a.overlay-link{:href => "shop-product.html"}
+                        %i.fa.fa-link
+                    %h3
+                      %a{:href => "shop-product.html"} Suscipit consequatur velit
+                    %span.price
+                      %del $199.00
+                      $150.00
+                .item
+                  .listing-item
+                    .overlay-container
+                      = image_tag "product-2.jpg",:alt=>"product 2"
+                      %span.badge 20% OFF
+                      %a.overlay-link{:href => "shop-product.html"}
+                        %i.fa.fa-link
+                    %h3
+                      %a{:href => "shop-product.html"} Quas inventore modi lorem
+                    %span.price
+                      %del $199.00
+                      $150.00
+                .item
+                  .listing-item
+                    .overlay-container
+                      = image_tag "product-3.jpg",:alt=>"product 3"
+                      %span.badge 40% OFF
+                      %a.overlay-link{:href => "shop-product.html"}
+                        %i.fa.fa-link
+                    %h3
+                      %a{:href => "shop-product.html"} Consectetur adipisicing elit
+                    %span.price
+                      %del $199.00
+                      $150.00
+          .block.clearfix
+            %h3.title Top Rated
+            .separator-2
+            .media.margin-clear
+              .media-left
+                .overlay-container
+                  = image_tag "product-5.jpg",:alt=>"blog-thumb"
+                  %a.overlay-link.small{:href => "shop-product.html"}
+                    %i.fa.fa-link
+              .media-body
+                %h6.media-heading
+                  %a{:href => "shop-product.html"} Lorem ipsum dolor sit amet
+                %p.margin-clear
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                %p.price $99.00
+              %hr
+            .media.margin-clear
+              .media-left
+                .overlay-container
+                  = image_tag "product-6.jpg",:alt=>"blog-thumb"
+                  %a.overlay-link.small{:href => "shop-product.html"}
+                    %i.fa.fa-link
+              .media-body
+                %h6.media-heading
+                  %a{:href => "shop-product.html"} Eum repudiandae ipsam
+                %p.margin-clear
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star
+                %p.price $299.00
+              %hr
+            .media.margin-clear
+              .media-left
+                .overlay-container
+                  = image_tag "product-7.jpg",:alt=>"blog-thumb"
+                  %a.overlay-link.small{:href => "shop-product.html"}
+                    %i.fa.fa-link
+              .media-body
+                %h6.media-heading
+                  %a{:href => "shop-product.html"} Quia aperiam velit fuga
+                %p.margin-clear
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star
+                %p.price $9.99
+              %hr
+            .media.margin-clear
+              .media-left
+                .overlay-container
+                  = image_tag "product-8.jpg",:alt=>"blog-thumb"
+                  %a.overlay-link.small{:href => "shop-product.html"}
+                    %i.fa.fa-link
+              .media-body
+                %h6.media-heading
+                  %a{:href => "shop-product.html"} Fugit non natus officiis
+                %p.margin-clear
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star
+                  %i.fa.fa-star
+                %p.price $399.00
+          .block.clearfix
+            %h3.title Categories
+            .separator-2
+            %nav
+              %ul.nav.nav-pills.nav-stacked.list-style-icons
+                %li
+                  %a{:href => "#"}
+                    %i.fa.fa-caret-right.pr-10>
+                    Diamonds
+                %li
+                  %a{:href => "#"}
+                    %i.fa.fa-caret-right.pr-10>
+                    Clothes
+                %li
+                  %a{:href => "#"}
+                    %i.fa.fa-caret-right.pr-10>
+                    Shoes
+                %li
+                  %a{:href => "#"}
+                    %i.fa.fa-caret-right.pr-10>
+                    Watches
+                %li
+                  %a{:href => "#"}
+                    %i.fa.fa-caret-right.pr-10>
+                    Accessories
+                %li
+                  %a{:href => "#"}
+                    %i.fa.fa-caret-right.pr-10>
+                    Hats
+                %li
+                  %a{:href => "#"}
+                    %i.fa.fa-caret-right.pr-10>
+                    Perfumes
+          .block.clearfix
+            %h3.title End of Season Sales
+            .separator-2
+            %p.margin-clear
+              Debitis eaque officia illo impedit ipsa earum
+              %a{:href => "#"} cupiditate repellendus
+              corrupti nisi nemo, perspiciatis optio harum, hic laudantium nulla maiores rem sit magni neque nihil sequi temporibus. Laboriosam ipsum reiciendis iste, nobis obcaecati, a autem voluptatum odio? Recusandae officiis dicta quod qui eligendi.
+          .block.clearfix
+            %form{:role => "search"}
+              .form-group.has-feedback
+                %input.form-control{:placeholder => "Search", :type => "text"}
+                  %i.fa.fa-search.form-control-feedback
+                    / sidebar end
+                    / main-container end
