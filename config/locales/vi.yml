@@ -260,7 +260,14 @@ vi:
       name: Tên danh mục
     attachments:
       remove_notice: Attachment removed successfully
-
+    services:
+      services: Dịch vụ
+      edit: Sửa dịch vụ
+      name: Tên dịch vụ
+      excerpt: Nội dung tóm tắt
+      descriptions: Thông tin dịch vụ
+      cost_price: Giá sản xuất
+      price: Giá dịch vụ
     countries:
       back: Back to countries
       continent: Continent
@@ -750,6 +757,7 @@ vi:
         settings: Cài đặt
         posts: Bài viết
         post_categories: Danh mục bài viết
+        services: Dịch vụ
 
     settings:
 

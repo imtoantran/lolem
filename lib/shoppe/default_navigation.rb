@@ -20,4 +20,5 @@ Shoppe::NavigationManager.build(:admin_primary) do
   add_item :settings
   add_item :post_categories
   add_item :posts
+  add_item :services
 end

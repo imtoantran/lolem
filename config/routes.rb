@@ -4,6 +4,8 @@ Shoppe::Engine.routes.draw do
   end
   resources :post_categories do
   end
+  resources :services do
+  end
 end
 Rails.application.routes.draw do
 

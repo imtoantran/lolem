@@ -1,0 +1,21 @@
+- @page_title = t("shoppe.services.services")
+
+= content_for :header do
+  %h2.settings= t("shoppe.services.services")
+
+.table
+  %table.data
+    %thead
+      %tr
+        %th= t('shoppe.posts.title')
+        %th= t('shoppe.services.content')
+    %tbody
+      - if @services.empty?
+        %tr.empty
+          %td{colspan: 5}= t('shoppe.posts.no_services')
+      - else
+        - for service in @services
+          %tr
+            %td= link_to service.name, service
+            %td= link_to service.excerpt, [:edit, service]
+= paginate @services

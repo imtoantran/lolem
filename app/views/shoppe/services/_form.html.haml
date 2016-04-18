@@ -1,0 +1,53 @@
+= form_for @service, :html => {:multipart => true} do |f|
+  = f.error_messages
+  = field_set_tag t('shoppe.services.descriptions') do
+    %dl
+      %dt=f.label :name,t('shoppe.services.name')
+      %dd=f.text_field :name, :class=>'text'
+    %dl
+      %dt=f.label :excerpt,t('shoppe.services.excerpt')
+      %dd=f.text_area :excerpt, :class=>'text'
+    .splitContainer
+      %dl.half
+        %dt= f.label :price_promotion, t('shoppe.services.price')
+        .moneyInput
+          .currency= Shoppe.settings.currency_unit.html_safe
+          = f.text_field :price_promotion, :class => 'text'
+      %dl.half
+        %dt= f.label :price_promotion, t('shoppe.services.cost_price')
+        .moneyInput
+          .currency= Shoppe.settings.currency_unit.html_safe
+          = f.text_field :price_promotion, :class => 'text'
+
+  = f.text_area :description, :class => "tinymce", :rows => 20, :cols => 120
+  = tinymce
+  = field_set_tag t('shoppe.posts.attachments') do
+    .splitContainer
+      %dl.half
+        %dt= f.label "attachments[default_image][file]", t('shoppe.posts.default_image')
+        %dd
+          = attachment_preview @service.default_image
+          %p= f.file_field "attachments[default_image][file]"
+          = f.hidden_field "attachments[default_image][role]", value: "default_image"
+          = f.hidden_field "attachments[default_image][parent_id]", value: @service.id
+    .splitContainer.extraAttachments
+      %dl.half
+        %dd
+          = attachment_preview nil, hide_if_blank: false
+          %p= f.file_field "attachments[extra][file]", :multiple => true
+          = f.hidden_field "attachments[extra][parent_type]", value: "Shoppe::Post"
+          = f.hidden_field "attachments[extra][parent_id]", value: @service.id
+
+      - @service.attachments.each do |attachment|
+        - unless ["default_image"].include?(attachment.role)
+          %dl.half
+            %dd
+              = attachment_preview attachment
+
+    %p.addAttachments= link_to t('shoppe.products.add_attachments') , '#', :data => {:behavior => 'addAttachmentToExtraAttachments'}, :class => 'button button-mini green'
+  %p.submit
+    - unless @service.new_record?
+      %span.right= link_to t('shoppe.delete') , @service, :class => 'button purple', :method => :delete, :data => {:confirm => "Bạn có chắc chắn muốn xóa?"}
+    = f.submit t('shoppe.submit'),  :class => 'button green'
+    = link_to t('shoppe.cancel'), :posts, :class => 'button'
+= tinymce_assets
