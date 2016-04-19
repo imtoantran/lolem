@@ -5,7 +5,9 @@ class CreatePosts < ActiveRecord::Migration
       t.string :full_content
       t.integer :user_id
       t.timestamps null: false
+      t.string :permalink
     end
     add_index :posts, [:user_id, :created_at]
+    add_index :posts, :permalink
   end
 end

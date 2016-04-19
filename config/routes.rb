@@ -45,14 +45,17 @@ Rails.application.routes.draw do
   match 'checkout/pay' => 'orders#payment', :as => 'checkout_payment', :via => [:get, :patch]
   match 'checkout/confirm' => 'orders#confirmation', :as => 'checkout_confirmation', :via => [:get, :patch]
 
+  resource :posts do
+
+  end
+
   #
   # Static pages
   #
   get ':action', :controller => 'pages', :as => 'page'
 
-  # 
+  #
   # Homepage
   #
   root :to => 'pages#home'
-
 end

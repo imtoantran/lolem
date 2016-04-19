@@ -1,0 +1,253 @@
+/ header-container start
+.header-container
+  / header-top start
+  / classes:
+  / "dark": dark version of header top e.g. class="header-top dark"
+  / "colored": colored version of header top e.g. class="header-top colored"
+  / ================
+  .header-top.dark
+    .container
+      .row
+        .col-xs-3.col-sm-6.col-md-9
+          / header-top-first start
+          / ================
+          .header-top-first.clearfix
+            %ul.social-links.circle.small.clearfix.hidden-xs
+              %li.twitter
+                %a{:href => "http://www.twitter.com", :target => "_blank"}
+                  %i.fa.fa-twitter
+              %li.skype
+                %a{:href => "http://www.skype.com", :target => "_blank"}
+                  %i.fa.fa-skype
+              %li.linkedin
+                %a{:href => "http://www.linkedin.com", :target => "_blank"}
+                  %i.fa.fa-linkedin
+              %li.googleplus
+                %a{:href => "http://plus.google.com", :target => "_blank"}
+                  %i.fa.fa-google-plus
+              %li.youtube
+                %a{:href => "http://www.youtube.com", :target => "_blank"}
+                  %i.fa.fa-youtube-play
+              %li.flickr
+                %a{:href => "http://www.flickr.com", :target => "_blank"}
+                  %i.fa.fa-flickr
+              %li.facebook
+                %a{:href => "http://www.facebook.com", :target => "_blank"}
+                  %i.fa.fa-facebook
+              %li.pinterest
+                %a{:href => "http://www.pinterest.com", :target => "_blank"}
+                  %i.fa.fa-pinterest
+            .social-links.hidden-lg.hidden-md.hidden-sm.circle.small
+              .btn-group.dropdown
+                %button.btn.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+                  %i.fa.fa-share-alt
+                %ul.dropdown-menu.dropdown-animation
+                  %li.twitter
+                    %a{:href => "http://www.twitter.com", :target => "_blank"}
+                      %i.fa.fa-twitter
+                  %li.skype
+                    %a{:href => "http://www.skype.com", :target => "_blank"}
+                      %i.fa.fa-skype
+                  %li.linkedin
+                    %a{:href => "http://www.linkedin.com", :target => "_blank"}
+                      %i.fa.fa-linkedin
+                  %li.googleplus
+                    %a{:href => "http://plus.google.com", :target => "_blank"}
+                      %i.fa.fa-google-plus
+                  %li.youtube
+                    %a{:href => "http://www.youtube.com", :target => "_blank"}
+                      %i.fa.fa-youtube-play
+                  %li.flickr
+                    %a{:href => "http://www.flickr.com", :target => "_blank"}
+                      %i.fa.fa-flickr
+                  %li.facebook
+                    %a{:href => "http://www.facebook.com", :target => "_blank"}
+                      %i.fa.fa-facebook
+                  %li.pinterest
+                    %a{:href => "http://www.pinterest.com", :target => "_blank"}
+                      %i.fa.fa-pinterest
+            %ul.list-inline.hidden-sm.hidden-xs
+              %li
+                %i.fa.fa-map-marker.pr-5.pl-10>
+                #{Shoppe.settings.store_address}
+              %li
+                %i.fa.fa-phone.pr-5.pl-10>
+                #{Shoppe.settings.store_tel}
+              %li
+                %i.fa.fa-envelope-o.pr-5.pl-10
+                info@vicdina.com
+        / header-top-first end
+        .col-xs-9.col-sm-6.col-md-3
+          / header-top-second start
+          / ================
+          #header-top-second.clearfix
+            / header top dropdowns start
+            / ================
+            .header-top-dropdown.text-right
+              .btn-group
+                %a.btn.btn-default.btn-sm{:href => "#"}
+                  %i.fa.fa-user.pr-10
+                  Đăng ký
+              .btn-group.dropdown
+                %button.btn.dropdown-toggle.btn-default.btn-sm{"data-toggle" => "dropdown", :type => "button"}
+                  %i.fa.fa-lock.pr-10
+                  Đăng nhập
+                %ul.dropdown-menu.dropdown-menu-right.dropdown-animation
+                  %li
+                    %form.login-form.margin-clear
+                      .form-group.has-feedback
+                        %label.control-label Username
+                        %input.form-control{:placeholder => "", :type => "text"}
+                          %i.fa.fa-user.form-control-feedback
+                      .form-group.has-feedback
+                        %label.control-label Password
+                        %input.form-control{:placeholder => "", :type => "password"}
+                          %i.fa.fa-lock.form-control-feedback
+                      %button.btn.btn-gray.btn-sm{:type => "submit"} Log In
+                      %span.pl-5.pr-5 or
+                      %button.btn.btn-default.btn-sm{:type => "submit"} Sing Up
+                      %ul
+                        %li
+                          %a{:href => "#"} Forgot your password?
+                      %span.text-center Đăng nhập with
+                      %ul.social-links.circle.small.colored.clearfix
+                        %li.facebook
+                          %a{:href => "http://www.facebook.com", :target => "_blank"}
+                            %i.fa.fa-facebook
+                        %li.twitter
+                          %a{:href => "http://www.twitter.com", :target => "_blank"}
+                            %i.fa.fa-twitter
+                        %li.googleplus
+                          %a{:href => "http://plus.google.com", :target => "_blank"}
+                            %i.fa.fa-google-plus
+  / header top dropdowns end
+  / header-top-second end
+  / header-top end
+  / header start
+  / classes:
+  / "fixed": enables fixed navigation mode (sticky menu) e.g. class="header fixed clearfix"
+  / "dark": dark version of header e.g. class="header dark clearfix"
+  / "full-width": mandatory class for the full-width menu layout
+  / "centered": mandatory class for the centered logo layout
+  / ================
+  %header.header.fixed.clearfix
+    .container
+      .row
+        .col-md-3
+          / header-left start
+          / ================
+          .header-left.clearfix
+            / logo
+            #logo.logo
+              %a{:href => "index.html"}
+                = image_tag('logo.png')
+        / name-and-slogan
+        /.site-slogan{:style => "letter-spacing: 3px;"}
+        /  cosmetic,. ltd
+        / header-left end
+        .col-md-9
+          / header-right start
+          / ================
+          .header-right.clearfix
+            / main-navigation start
+            / classes:
+            / "onclick": Makes the dropdowns open on click, this the default bootstrap behavior e.g. class="main-navigation onclick"
+            / "animated": Enables animations on dropdowns opening e.g. class="main-navigation animated"
+            / "with-dropdown-buttons": Mandatory class that adds extra space, to the main navigation, for the search and cart dropdowns
+            / ================
+            .main-navigation.animated.with-dropdown-buttons
+              / navbar start
+              / ================
+              %nav.navbar.navbar-default{:role => "navigation"}
+                .container-fluid
+                  / Toggle get grouped for better mobile display
+                  .navbar-header
+                    %button.navbar-toggle{"data-target" => "#navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+                      %span.sr-only Toggle navigation
+                      %span.icon-bar
+                      %span.icon-bar
+                      %span.icon-bar
+                  / Collect the nav links, forms, and other content for toggling
+                  #navbar-collapse-1.collapse.navbar-collapse
+                    / main-menu
+                    %ul.nav.navbar-nav
+                      %li.active=link_to 'Trang chủ'
+                      %li=link_to(t("shoppe.services.services"),"#services")
+                      %li.dropdown
+                        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "blog-large-image-right-sidebar.html"} Bài viết
+                        %ul.dropdown-menu
+                          %li
+                            %a{:href => "index-blog.html"}
+                              Blog Home
+                              %span.badge New
+                          %li.dropdown
+                            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Large Image
+                            %ul.dropdown-menu.to-left
+                              %li
+                                %a{:href => "blog-large-image-right-sidebar.html"} Right Sidebar
+                              %li
+                                %a{:href => "blog-large-image-left-sidebar.html"} Left Sidebar
+                              %li
+                                %a{:href => "blog-large-image-no-sidebar.html"} Without Sidebar
+                          %li.dropdown
+                            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Medium Image
+                            %ul.dropdown-menu.to-left
+                              %li
+                                %a{:href => "blog-medium-image-right-sidebar.html"} Right Sidebar
+                              %li
+                                %a{:href => "blog-medium-image-left-sidebar.html"} Left Sidebar
+                              %li
+                                %a{:href => "blog-medium-image-no-sidebar.html"} Without Sidebar
+                          %li.dropdown
+                            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Masonry
+                            %ul.dropdown-menu.to-left
+                              %li
+                                %a{:href => "blog-masonry-right-sidebar.html"} Right Sidebar
+                              %li
+                                %a{:href => "blog-masonry-left-sidebar.html"} Left Sidebar
+                              %li
+                                %a{:href => "blog-masonry-no-sidebar.html"} Without Sidebar
+                          %li
+                            %a{:href => "blog-timeline.html"} Timeline
+                          %li
+                            %a{:href => "blog-post.html"} Blog Post
+                    / main-menu end
+                    / header dropdown buttons
+                    .header-dropdown-buttons.hidden-xs
+                      .btn-group.dropdown
+                        %button.btn.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+                          %i.icon-search
+                        %ul.dropdown-menu.dropdown-menu-right.dropdown-animation
+                          %li
+                            %form.search-box.margin-clear{:role => "search"}
+                              .form-group.has-feedback
+                                %input.form-control{:placeholder => "Search", :type => "text"}
+                                  %i.icon-search.form-control-feedback
+                      .btn-group.dropdown
+                        %button.btn.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+                          %i.icon-basket-1
+                          %span.cart-count.default-bg= current_order.total_items
+                        %ul.dropdown-menu.dropdown-menu-right.dropdown-animation.cart
+                          %li
+                            %table.table.table-hover
+                              %thead
+                                %tr
+                                  %th.quantity QTY
+                                  %th.product Sản phẩm
+                                  %th.amount Tổng
+                              %tbody
+                                %tr
+                                  %td.quantity 2 x
+                                  %td.product
+                                    %a{:href => "shop-product.html"} Android 4.4 Smartphone
+                                    %span.small 4.7" Dual Core 1GB
+                                  %td.amount $199.00
+                            .panel-body.text-right
+                              %a.btn.btn-group.btn-gray.btn-sm{:href => "shop-cart.html"} View Cart
+                              %a.btn.btn-group.btn-gray.btn-sm{:href => "shop-checkout.html"} Checkout
+  / header dropdown buttons end
+  / navbar end
+  / main-navigation end
+  / header-right end
+  / header end
+  / header-container end

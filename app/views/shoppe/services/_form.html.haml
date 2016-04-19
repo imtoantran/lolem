@@ -1,3 +1,4 @@
+= tinymce_assets
 = form_for @service, :html => {:multipart => true} do |f|
   = f.error_messages
   = field_set_tag t('shoppe.services.descriptions') do
@@ -50,4 +51,3 @@
       %span.right= link_to t('shoppe.delete') , @service, :class => 'button purple', :method => :delete, :data => {:confirm => "Bạn có chắc chắn muốn xóa?"}
     = f.submit t('shoppe.submit'),  :class => 'button green'
     = link_to t('shoppe.cancel'), :posts, :class => 'button'
-= tinymce_assets
