@@ -777,6 +777,9 @@ vi:
         currency_unit: Đơn vị tiền tệ
         tax_name: Tên thuế
         demo_mode: Demo Mode
+        store_address: Địa chỉ
+        store_tel: Điện thoại
+        short_description: Giới thiệu ngắn
 
       options:
         # Options for boolean settings
@@ -791,6 +794,9 @@ vi:
         email_address: The e-mail address to use when sending outbound messages. Must just be an e-mail address.
         store_name: This is the name of your store which will be used through the Shoppe admin interface as well as in the default outbound e-mail messages.
         tax_name: The name for "Tax" which will be displayed in your admin interface. Commonly replaced with VAT in European countries.
+        store_address: Địa chỉ
+        store_tel: Điện thoại hỗ trợ
+        short_description: Giới thiệu ngắn
 
       save_settings: Lưu Cài đặt
       page_title: Cài đặt

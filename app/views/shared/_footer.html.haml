@@ -1,0 +1,114 @@
+%footer#footer.clearfix
+  / .footer start
+  / ================
+  .footer
+    .container
+      .footer-inner
+        .row
+          .col-md-3
+            .footer-content
+              .logo-footer= image_tag("logo.png")
+              %p
+                #{Shoppe.settings.short_description}...
+                %a{:href => "page-about.html"}
+                  Chi tiết
+                  %i.fa.fa-long-arrow-right.pl-5
+              .separator-2
+              %nav
+                %ul.nav.nav-pills.nav-stacked
+                  %li
+                    %a{:href => "#", :target => "_blank"} Hỗ trợ
+                  %li
+                    %a{:href => "#"} Chính sách
+                  %li
+                    %a{:href => "#"} Quy định
+                  %li
+                    %a{:href => "#"} Giới thiệu
+          .col-md-3
+            .footer-content
+              =render 'shared/recent_post'
+          .col-md-3
+            .footer-content
+              %h2.title Portfolio Gallery
+              .separator-2
+              .row.grid-space-10
+                .col-xs-4.col-md-6
+                  .overlay-container.mb-10
+                    = image_tag("gallery-1.jpg")
+                    %a.overlay-link.small{:href => "portfolio-item.html"}
+                      %i.fa.fa-link
+                .col-xs-4.col-md-6
+                  .overlay-container.mb-10
+                    = image_tag("gallery-2.jpg")
+                    %a.overlay-link.small{:href => "portfolio-item.html"}
+                      %i.fa.fa-link
+                .col-xs-4.col-md-6
+                  .overlay-container.mb-10
+                    = image_tag("gallery-3.jpg")
+                    %a.overlay-link.small{:href => "portfolio-item.html"}
+                      %i.fa.fa-link
+                .col-xs-4.col-md-6
+                  .overlay-container.mb-10
+                    = image_tag("gallery-4.jpg")
+                    %a.overlay-link.small{:href => "portfolio-item.html"}
+                      %i.fa.fa-link
+                .col-xs-4.col-md-6
+                  .overlay-container.mb-10
+                    = image_tag("gallery-5.jpg")
+                    %a.overlay-link.small{:href => "portfolio-item.html"}
+                      %i.fa.fa-link
+                .col-xs-4.col-md-6
+                  .overlay-container.mb-10
+                    = image_tag("gallery-6.jpg")
+                    %a.overlay-link.small{:href => "portfolio-item.html"}
+                      %i.fa.fa-link
+              .text-right.space-top
+                %a.link-dark{:href => "portfolio-grid-2-3-col.html"}
+                  %i.fa.fa-plus-circle.pl-5.pr-5>
+                  More
+          .col-md-3
+            .footer-content
+              %h2.title Kết nối cùng #{Shoppe.settings.store_name}
+              .separator-2
+              %p
+                .fb-page{"data-adapt-container-width" => "true", "data-hide-cover" => "false", "data-href" => "https://www.facebook.com/lolemspaphanthiet/", "data-show-facepile" => "true", "data-small-header" => "false"}
+                  .fb-xfbml-parse-ignore
+                    %blockquote{:cite => "https://www.facebook.com/lolemspaphanthiet/"}
+                      %a{:href => "https://www.facebook.com/lolemspaphanthiet/"} #{Shoppe.settings.store_name}
+              .separator-2
+              %ul.list-icons
+                %li
+                  %i.fa.fa-map-marker.pr-10.text-default
+                  #{Shoppe.settings.store_address}
+                %li
+                  %i.fa.fa-phone.pr-10.text-default
+                  #{Shoppe.settings.store_tel}
+                %li
+                  %a{:href => "mailto:info@vicdina.com"}
+                    %i.fa.fa-envelope-o.pr-10>
+                    #{Shoppe.settings.email_address}
+  / .footer end
+  / .subfooter start
+  / ================
+  .subfooter
+    .container
+      .subfooter-inner
+        .row
+          .col-md-12
+            %p.text-center
+              Copyright @ 2016 by
+              = succeed "." do
+                %a{:href => "http://lolemspa.com", :target => "_blank"} #{Shoppe.settings.store_name}
+              All Rights Reserved
+  / .subfooter end
+  / footer end
+  / page-wrapper end
+  #fb-root
+:javascript
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.6&appId=378049169055908";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));

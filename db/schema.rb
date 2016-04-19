@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418073841) do
+ActiveRecord::Schema.define(version: 20160419015933) do
 
   create_table "nifty_attachments", force: :cascade do |t|
     t.integer  "parent_id"
@@ -76,15 +76,18 @@ ActiveRecord::Schema.define(version: 20160418073841) do
 
   add_index "posts", ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"
 
-  create_table "services", force: :cascade do |t|
-    t.string   "name"
-    t.string   "excerpt"
-    t.string   "description"
-    t.float    "price"
-    t.float    "cost_price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+# Could not dump table "services" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+  create_table "settings", force: :cascade do |t|
+    t.string   "key"
+    t.string   "value"
+    t.string   "value_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
+
+  add_index "settings", ["key"], name: "index_settings_on_key"
 
   create_table "shoppe_addresses", force: :cascade do |t|
     t.integer  "customer_id"
