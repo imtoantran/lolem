@@ -45,9 +45,14 @@ Rails.application.routes.draw do
   match 'checkout/pay' => 'orders#payment', :as => 'checkout_payment', :via => [:get, :patch]
   match 'checkout/confirm' => 'orders#confirmation', :as => 'checkout_confirmation', :via => [:get, :patch]
 
-  resource :posts do
-
-  end
+  #
+  # Post browising
+  #
+  get 'blogs' => 'posts#index', :as => 'posts'
+  get 'blogs/filter' => 'posts#filter', :as => 'post_filter'
+  # get 'blogs/:category_id' => 'posts#index', :as => 'posts'
+  get 'blogs/:category_id/:post_id' => 'posts#show', :as => 'post'
+  # post 'posts/:category_id/:post_id/buy' => 'posts#add_to_basket', :as => 'buy_product'
 
   #
   # Static pages

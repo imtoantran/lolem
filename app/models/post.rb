@@ -27,5 +27,15 @@ class Post < ActiveRecord::Base
   def attachments=(attrs)
     if attrs["default_image"]["file"].present? then self.attachments.build(attrs["default_image"]) end
   end
+  # Return the first product category
+  #
+  # @return [Shoppe::ProductCategory]
+  def post_category
+    post_categories.first
+  rescue
+    nil
+  end
+  # All active posts
+  scope :active, -> { where(active: true) }
 
 end

@@ -2,15 +2,16 @@ class PostsController < ApplicationController
   
   before_filter do
     if params[:category_id]
-      @post_category = Shoppe::ProductCategory.where(:permalink => params[:category_id]).first!
+      @post_category = PostCategory.where(:permalink => params[:category_id]).first!
     end
-    if @post_category && params[:product_id]
-      @post = @post_category.posts.where(:permalink => params[:product_id]).active.first!      
+    if @post_category && params[:post_id]
+      @post = @post_category.posts.where(:permalink => params[:post_id]).active.first!
     end
   end
   
   def index
-    @posts = @post_category.posts.includes(:product_categories, :variants).root.active
+    # @posts = @post_category.posts.includes(:product_categories, :variants).root.active
+    @posts = Post.all
   end
   
   def filter
@@ -18,7 +19,7 @@ class PostsController < ApplicationController
   end
   
   def categories
-    @post_categories = Shoppe::ProductCategory.ordered
+    @post_categories = PostCategory.ordered
   end
   
   def show

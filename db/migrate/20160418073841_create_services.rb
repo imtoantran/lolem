@@ -6,7 +6,7 @@ class CreateServices < ActiveRecord::Migration
       t.string :description
       t.float :price
       t.float :price_promotion
-
+      t.integer :featured, default: 0
       t.timestamps null: false
     end
   end

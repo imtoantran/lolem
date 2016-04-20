@@ -139,7 +139,7 @@
           .header-left.clearfix
             / logo
             #logo.logo
-              %a{:href => "index.html"}
+              %a{:href => root_path}
                 = image_tag('logo.png')
         / name-and-slogan
         /.site-slogan{:style => "letter-spacing: 3px;"}
@@ -173,44 +173,7 @@
                     %ul.nav.navbar-nav
                       %li.active=link_to 'Trang chủ'
                       %li=link_to(t("shoppe.services.services"),"#services")
-                      %li.dropdown
-                        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "blog-large-image-right-sidebar.html"} Bài viết
-                        %ul.dropdown-menu
-                          %li
-                            %a{:href => "index-blog.html"}
-                              Blog Home
-                              %span.badge New
-                          %li.dropdown
-                            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Large Image
-                            %ul.dropdown-menu.to-left
-                              %li
-                                %a{:href => "blog-large-image-right-sidebar.html"} Right Sidebar
-                              %li
-                                %a{:href => "blog-large-image-left-sidebar.html"} Left Sidebar
-                              %li
-                                %a{:href => "blog-large-image-no-sidebar.html"} Without Sidebar
-                          %li.dropdown
-                            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Medium Image
-                            %ul.dropdown-menu.to-left
-                              %li
-                                %a{:href => "blog-medium-image-right-sidebar.html"} Right Sidebar
-                              %li
-                                %a{:href => "blog-medium-image-left-sidebar.html"} Left Sidebar
-                              %li
-                                %a{:href => "blog-medium-image-no-sidebar.html"} Without Sidebar
-                          %li.dropdown
-                            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Masonry
-                            %ul.dropdown-menu.to-left
-                              %li
-                                %a{:href => "blog-masonry-right-sidebar.html"} Right Sidebar
-                              %li
-                                %a{:href => "blog-masonry-left-sidebar.html"} Left Sidebar
-                              %li
-                                %a{:href => "blog-masonry-no-sidebar.html"} Without Sidebar
-                          %li
-                            %a{:href => "blog-timeline.html"} Timeline
-                          %li
-                            %a{:href => "blog-post.html"} Blog Post
+                      %li=link_to t('Shoppe.menu.blogs') ,posts_path
                     / main-menu end
                     / header dropdown buttons
                     .header-dropdown-buttons.hidden-xs

@@ -19,6 +19,13 @@ class PostCategory < ActiveRecord::Base
   def attachments=(attrs)
     if attrs["default_image"]["file"].present? then self.attachments.build(attrs["default_image"]) end
   end
+  # Attachment with the role image
+  #
+  # @return [String]
+  def image
+    attachments.for('image')
+  end
+
   # No descendants
   scope :except_descendants, ->(record) { where.not(id: (Array.new(record.descendants) << record).flatten) }
 end
