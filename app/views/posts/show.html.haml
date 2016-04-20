@@ -1,62 +1,45 @@
 - active_nav_item :posts
 - @page_title = @post.title + " - " + @post.post_category.name
-.product
-  - if @post.default_image
-    .img{:style => "background-image:url(#{@post.default_image.path})"}
-  %h2= @post.name
-  %p.intro= @post.short_description
-  
-  - if @post.has_variants?
-    %table.variants
-      - for variant in @post.variants
-        %tr
-          %td
-            - if variant.in_stock?
-              %p.stock.yes In stock
-            - else
-              %p.stock.no Out of stock
-            %h4= variant.name
-            %p.price= number_to_currency variant.price
-          %td.buy
-            = form_tag buy_product_path(@post.post_category.permalink, @post.permalink, :variant => variant.id), :class => (variant.in_stock? ? 'in-stock' : 'no-stock') do
-              %p
-                = select_tag 'quantity', options_for_select([1,2,3,4,5,6,7,8,9]), :disabled => !variant.in_stock?
-                = submit_tag 'Add to basket', :disabled => !variant.in_stock?
-  - else
-    .optionsBox
-      .top
-        %p.price= number_to_currency @post.price
-        = form_tag buy_product_path(@post.post_category.permalink, @post.permalink), :class => (@post.in_stock? ? 'in-stock' : 'no-stock') do
-          %p
-            = select_tag 'quantity', options_for_select([1,2,3,4,5,6,7,8,9]), :disabled => !@post.in_stock?
-            = submit_tag 'Add to basket', :disabled => !@post.in_stock?
-      .bottom
-        .stock
-          - if @post.in_stock?
-            %p.yes In stock
-            %p.time Order in the next <b>#{time_until_next_delivery_cut_off}</b> for delivery #{next_delivery_day}.
-          - else
-            %p.no Out of stock
-            %p.time Sorry - we don't have any stock of this product at the moment. #{link_to "Let me know when you do"}.
-        .links
-          %ul
-            - if @post.data_sheet
-              %li.item.datasheet= link_to "Read product datasheet", @post.data_sheet.path
-            - unless @post.in_the_box.blank?
-              %li.item.box
-                = link_to "What's in the box?"
-                %div.in_the_box
-                  %h3 What's in the box?
-                  = markdown @post.in_the_box
-            %li.item.ask= mail_to Shoppe.settings.email_address, "Ask us a question about this", :subject => "Question about the #{@post.name}"
-
-    %hr
-
-  - unless @attributes.empty?
-    %table.attributes
-      - for attribute in @attributes
-        %tr
-          %th= attribute.key
-          %td= link_to attribute.value, product_filter_path(:key => attribute.key, :value => attribute.value)
-  .description
-    = markdown @post.description
+%section.main-container
+  .container
+    .row
+      / main start
+      .main.col-md-8
+        -# page-title start
+        %h1.page-title #{@post.title}
+        -# page-title end
+        %article.blogpost.full
+          %header
+            .post-info
+              %span.post-date
+                %i.icon-calendar
+                %span.day #{@post.updated_at.strftime("%d")}
+                %span.month #{@post.updated_at.strftime("%m %Y")}
+                %span.submitted
+                  %i.icon-user-1
+                %span.commented
+                  %i.icon-chat
+          .blogpost-content
+            %p.text-center
+              = image_tag @post.default_image.path, :alt => @post.title, :class => 'img-responsive img-thumbnail'
+            = markdown @post.description
+          %footer.clearfix
+            .tags.pull-left
+              %i.icon-tags
+              = succeed "," do
+                %a{:href => "#"} tag 1
+              = succeed "," do
+                %a{:href => "#"} tag 2
+              %a{:href => "#"} long tag 3
+            .link.pull-right
+              %ul.social-links.circle.small.colored.clearfix.margin-clear.text-right.animated-effect-1
+                %li.twitter
+                  %a{:href => "http://www.twitter.com", :target => "_blank"}
+                    %i.fa.fa-twitter
+                %li.googleplus
+                  %a{:href => "http://plus.google.com", :target => "_blank"}
+                    %i.fa.fa-google-plus
+                %li.facebook
+                  %a{:href => "http://www.facebook.com", :target => "_blank"}
+                    %i.fa.fa-facebook
+      =render 'shared/side_bar'

@@ -6,11 +6,11 @@
     .media-left
       .overlay-container
         =image_tag(post.default_image ? post.default_image.path : '',:class=>'media-object')
-        %a.overlay-link.small{:href => "blog-post.html"}
+        %a.overlay-link.small{:href => post.permalink}
           %i.fa.fa-link
     .media-body
       %h6.media-heading
-        %a{:href => "blog-post.html",:title => post.title} #{truncate(post.title,length: 60)}
+        = link_to truncate(post.title,length: 60), post_path(post.post_category.permalink,post.permalink)
       %p.small.margin-clear
         %i.fa.fa-calendar.pr-10>
         #{post.updated_at.strftime("%H:%M %d - %m - %Y")}

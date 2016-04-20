@@ -76,8 +76,16 @@ ActiveRecord::Schema.define(version: 20160419015933) do
 
   add_index "posts", ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"
 
-# Could not dump table "services" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "services", force: :cascade do |t|
+    t.string   "name"
+    t.string   "excerpt"
+    t.string   "description"
+    t.float    "price"
+    t.float    "price_promotion"
+    t.integer  "featured",        default: 0
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
 
   create_table "settings", force: :cascade do |t|
     t.string   "key"

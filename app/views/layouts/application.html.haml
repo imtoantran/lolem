@@ -9,7 +9,6 @@
     = stylesheet_link_tag asset_url "fonts/fontello/css/fontello"
     = stylesheet_link_tag asset_url "plugins/rs-plugin/css/settings"
     = stylesheet_link_tag :application
-    = javascript_include_tag :application
     = csrf_meta_tags
     = yield :head
   %body
@@ -19,6 +18,7 @@
 / ================
 .page-wrapper
   = render 'shared/header'
+  = render 'shared/breadcrumb'
   = yield :banner
   = yield :under_banner
   = yield :services
@@ -35,3 +35,4 @@
   / ================
   = render 'shared/footer'
   = display_flash
+  = javascript_include_tag :application

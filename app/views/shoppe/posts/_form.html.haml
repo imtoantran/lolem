@@ -8,7 +8,7 @@
       %dt= f.label :post_categories, t('shoppe.post_category.post_categories')
       %dd= f.collection_select :post_category_ids, PostCategory.ordered, :id, :name, {:prompt => false}, {:class => 'chosen', :multiple => true, :data => {:placeholder => t('shoppe.post_category.choose_post_category') }}
 
-  = f.text_area :full_content, :class => "tinymce", :rows => 20, :cols => 120
+  = f.text_area :description, :class => "tinymce", :rows => 20, :cols => 120
   = tinymce
   = field_set_tag t('shoppe.posts.attachments') do
     .splitContainer
