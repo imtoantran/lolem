@@ -1,2 +1,108 @@
 - active_nav_item :posts
 - @page_title = 'Blogs'
+/ banner start
+.light-gray-bg.banner.pv-40
+  .container.clearfix
+    / slideshow start
+    .slideshow
+      / slider revolution start
+      .slider-banner-container
+        .slider-banner-boxedwidth-no-shadow
+          %ul.slides
+            / slide 1 start
+            %li{"data-masterspeed" => "500", "data-saveperformance" => "on", "data-slotamount" => "7", "data-title" => "Bí quyết làm đẹp từ yến sào", "data-transition" => "random"}
+              / main image
+              %img{:alt => "Bí quyết làm đẹp làn da từ yến sào", "data-bgfit" => "cover", "data-bgposition" => "center top", "data-bgrepeat" => "no-repeat", :src => image_path("sliders/posts/bi-quyet-lam-dep-lan-da-tu-yen-sao-hinh.jpg")}
+                / Transparent Background
+                .tp-caption.dark-translucent-bg{"data-speed" => "600", "data-start" => "0", "data-x" => "center", "data-y" => "bottom"}
+                / LAYER NR. 1
+                .tp-caption.sfb.fadeout.large_white{"data-easing" => "easeOutQuad", "data-hoffset" => "20", "data-speed" => "500", "data-start" => "1000", "data-x" => "left", "data-y" => "110"}
+                  Bí quyết làm đẹp làn da từ yến sào
+                / LAYER NR. 2
+                .tp-caption.sfb.fadeout.hidden-xs.large_white.tp-resizeme{"data-easing" => "easeOutQuad", "data-hoffset" => "20", "data-speed" => "500", "data-start" => "1300", "data-x" => "left", "data-y" => "175"}
+                  .separator-2.light
+                / LAYER NR. 3
+                .tp-caption.sfb.fadeout.medium_white.hidden-xs{"data-easing" => "easeOutQuad", "data-endspeed" => "600", "data-hoffset" => "20", "data-speed" => "500", "data-start" => "1300", "data-x" => "left", "data-y" => "190"}
+                  Yến sào là một loại thực phẩm giàu chất dinh dưỡng
+                  %br
+                    ngoài chức năng giải độc, yến sào còn có khả năng hấp thu các tạp chất
+                    %br
+                      và làm sạch bề mặt da, lỗ chân lông...
+                / LAYER NR. 4
+                .tp-caption.sfb.fadeout.small_white.hidden-xs{"data-easing" => "easeOutQuad", "data-endspeed" => "600", "data-hoffset" => "20", "data-speed" => "500", "data-start" => "1600", "data-x" => "left", "data-y" => "300"}
+                  %a.btn.btn-default.btn-animated{:href => "#"}
+                    Xem
+                    %i.fa.fa-arrow-right
+            / slide 1 end
+            / slide 2 start
+            %li{"data-masterspeed" => "500", "data-saveperformance" => "on", "data-slotamount" => "7", "data-title" => "Bí quyết làm đẹp khiến các chàng say đắm", "data-transition" => "random"}
+              / main image
+              %img{:alt => "Bí quyết làm đẹp khiến các chàng say đắm", "data-bgfit" => "cover", "data-bgposition" => "center top", "data-bgrepeat" => "no-repeat", :src => image_path("sliders/posts/bi-quyet-lam-dep-khien-cac-chang-say-dam.jpg")}
+                / Transparent Background
+                .tp-caption.dark-translucent-bg{"data-speed" => "600", "data-start" => "0", "data-x" => "center", "data-y" => "bottom"}
+                / LAYER NR. 1
+                .tp-caption.sfb.fadeout.large_white{"data-easing" => "easeOutQuad", "data-hoffset" => "20", "data-speed" => "500", "data-start" => "1000", "data-x" => "left", "data-y" => "110"}
+                  Bí quyết làm đẹp khiến các chàng say đắm
+                / LAYER NR. 2
+                .tp-caption.sfb.fadeout.hidden-xs.large_white.tp-resizeme{"data-easing" => "easeOutQuad", "data-hoffset" => "20", "data-speed" => "500", "data-start" => "1300", "data-x" => "left", "data-y" => "175"}
+                  .separator-2.light
+                / LAYER NR. 3
+                .tp-caption.sfb.fadeout.medium_white.hidden-xs{"data-easing" => "easeOutQuad", "data-endspeed" => "600", "data-hoffset" => "20", "data-speed" => "500", "data-start" => "1300", "data-x" => "left", "data-y" => "190"}
+                  Giữ cho làn da săn chắc không tuổi
+                / LAYER NR. 4
+                .tp-caption.sfb.fadeout.small_white.hidden-xs{"data-easing" => "easeOutQuad", "data-endspeed" => "600", "data-hoffset" => "20", "data-speed" => "500", "data-start" => "1600", "data-x" => "left", "data-y" => "300"}
+                  %a.btn.btn-default.btn-animated{:href => "#"}
+                    Xem
+                    %i.fa.fa-arrow-right
+            / slide 2 end
+          .tp-bannertimer
+      / slider revolution end
+    / slideshow end
+/ banner end
+
+/ main-container start
+%section.main-container
+  .container
+    .row
+      / main start
+      / ================
+      .main.col-md-8
+        / page-title start
+        / ================
+        %h1.page-title Blogs
+        .separator-2
+        %p.lead Chia sẻ tin bài cách chăm sóc da Lọ Lem Spa, các thực phẩm tốt cho thẩm mỹ viện spa giúp làn da đẹp các chị em cần biết hay nhất.
+        / page-title end
+        -for post in @posts
+          / blogpost start
+          %article.blogpost
+            .overlay-container
+              -if post.default_image
+                =image_tag post.default_image.path, :alt=>post.title
+              =link_to post_path(post.post_category.permalink,post.permalink), :class=>'overlay-link' do
+                %i.fa.fa-link
+            %header
+              %h2
+                = link_to post.title, post_path(post.post_category.permalink,post.permalink)
+              .post-info
+                %span.post-date
+                  %i.icon-calendar
+                  %span.month #{post.updated_at.strftime('%d - %m - %Y')}
+                %span.submitted
+                  %i.icon-user-1
+                  by
+                  %a{:href => "#"} lolem
+                %span.comments
+                  %i.icon-chat
+                  %a{:href => "#"} 0 comments
+            .blogpost-content
+              = markdown post.excerpt
+            %footer.clearfix
+              .tags.pull-left
+                %i.icon-tags
+              .link.pull-right
+                %i.icon-link
+                = link_to 'Xem', post_path(post.post_category.permalink,post.permalink)
+          / blogpost end
+        =paginate @posts
+      =render 'shared/side_bar'

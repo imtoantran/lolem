@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   #
   # Shoppe admin interface
   #
-  mount Shoppe::Engine => "/shopman"
+  mount Shoppe::Engine => "/admin"
 
   #
   # Product browising
@@ -54,6 +54,9 @@ Rails.application.routes.draw do
   get 'blogs/:category_id/:post_id' => 'posts#show', :as => 'post'
   # post 'posts/:category_id/:post_id/buy' => 'posts#add_to_basket', :as => 'buy_product'
 
+  # Service browsing
+  get 'services' => 'services#index', as: 'services'
+  get 'services/:service_id' => 'services#show', :as =>'service'
   #
   # Static pages
   #

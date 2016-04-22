@@ -7,7 +7,16 @@
     %dl
       %dt= f.label :post_categories, t('shoppe.post_category.post_categories')
       %dd= f.collection_select :post_category_ids, PostCategory.ordered, :id, :name, {:prompt => false}, {:class => 'chosen', :multiple => true, :data => {:placeholder => t('shoppe.post_category.choose_post_category') }}
-
+    %dl
+      %dt= f.label :permalink, t('shoppe.posts.permalink')
+      %dd= f.text_field :permalink, :class=>'text'
+    %dl
+      %dt= f.label :excerpt, t('shoppe.posts.excerpt')
+      %dd= f.text_area :excerpt, :class=>'text'
+    %dl
+      %dd.checkbox
+        = f.label :active, t('shoppe.posts.active')
+        = f.check_box :active
   = f.text_area :description, :class => "tinymce", :rows => 20, :cols => 120
   = tinymce
   = field_set_tag t('shoppe.posts.attachments') do
@@ -32,10 +41,9 @@
           %dl.half
             %dd
               = attachment_preview attachment
-
     %p.addAttachments= link_to t('shoppe.products.add_attachments') , '#', :data => {:behavior => 'addAttachmentToExtraAttachments'}, :class => 'button button-mini green'
   %p.submit
     - unless @post.new_record?
       %span.right= link_to t('shoppe.delete') , @post, :class => 'button purple', :method => :delete, :data => {:confirm => "Bạn có chắc chắn muốn xóa?"}
-    = f.submit t('shoppe.submit'),  :class => 'button green'
+    = f.submit t('shoppe.posts.submit'),  :class => 'button green'
     = link_to t('shoppe.cancel'), :posts, :class => 'button'

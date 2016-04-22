@@ -25,10 +25,10 @@
   #page-start
   / section start
   = yield
-  = render 'shared/core_feature'
-  = render 'shared/offers'
-  = render 'shared/choose_us'
-  =render 'shared/what_offers'
+  = yield :bottom_a
+  = yield :bottom_b
+  = yield :bottom_c
+  = yield :bottom_d
   / footer top end
   / section end
   / footer start (Add "dark" class to #footer in order to enable dark footer)

@@ -1,14 +1,19 @@
 - @page_title = t("shoppe.services.services")
 
 = content_for :header do
+  %p.buttons
+    =link_to t('shoppe.services.new_service'), :new_service,class: 'button green'
   %h2.settings= t("shoppe.services.services")
-
 .table
   %table.data
     %thead
       %tr
-        %th= t('shoppe.posts.title')
-        %th= t('shoppe.services.content')
+        %th{width:100}= t('shoppe.services.image')
+        %th= t('shoppe.services.name')
+        %th= t('shoppe.services.price')
+        %th= t('shoppe.services.price_promotion')
+        %th= t('shoppe.services.active')
+        %th= t('shoppe.services.featured')
     %tbody
       - if @services.empty?
         %tr.empty
@@ -16,6 +21,15 @@
       - else
         - for service in @services
           %tr
-            %td= link_to service.name, service
-            %td= link_to service.excerpt, [:edit, service]
+            %td
+              = link_to [:edit,service] do
+                -if service.default_image
+                  =image_tag service.default_image.path, height: 60
+            %td
+              = link_to service.name, [:edit,service]
+            -#%td= service.excerpt, [:edit, service]
+            %td= number_to_currency service.price
+            %td= number_to_currency service.price_promotion
+            %td= t('shoppe.services.active_'+service.active?.to_s)
+            %td= t('shoppe.services.featured_'+service.featured?.to_s)
 = paginate @services

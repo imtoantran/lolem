@@ -1,37 +1,42 @@
-- active_nav_item :posts
-- @page_title = @post.title + " - " + @post.post_category.name
+- active_nav_item :services
+- @page_title = @service.name
 %section.main-container
   .container
     .row
       / main start
       .main.col-md-8
         -# page-title start
-        %h1.page-title #{@post.title}
+        %h1.page-title #{@service.name}
         -# page-title end
         %article.blogpost.full
           %header
             .post-info
               %span.post-date
                 %i.icon-calendar
-                %span.day #{@post.updated_at.strftime("%d")}
-                %span.month #{@post.updated_at.strftime("%m %Y")}
+                %span.day #{@service.updated_at.strftime("%d-%m-%Y")}
                 %span.submitted
                   %i.icon-user-1
                 %span.commented
                   %i.icon-chat
           .blogpost-content
             %p.text-center
-              -if @post.default_image
-                = image_tag @post.default_image.path, :alt => @post.title, :class => 'img-responsive img-thumbnail'
-            = markdown @post.description
+              -if @service.default_image
+                = image_tag @service.default_image.path, :alt => @service.name, :class => 'img-responsive img-thumbnail'
+            .service-price.p-20.bordered.clearfix
+              %span.product.price
+                %i.icon-tag.pr-10>
+                -if @service.price_promotion>0 and @service.price_promotion<@service.price
+                  %span.price_promotion= number_to_currency @service.price_promotion
+                  %span.price= number_to_currency @service.price
+                  %span.promotion Giảm #{number_to_percentage 100*(1-@service.price_promotion/@service.price)}
+                -else
+                  %span.product.price= number_to_currency @service.price
+              .product.elements-list.pull-right.clearfix
+                %input.margin-clear.btn.btn-default{:type => "submit", :value => "Liên hệ"}
+            = markdown @service.description
           %footer.clearfix
             .tags.pull-left
               %i.icon-tags
-              = succeed "," do
-                %a{:href => "#"} tag 1
-              = succeed "," do
-                %a{:href => "#"} tag 2
-              %a{:href => "#"} long tag 3
             .link.pull-right
               %ul.social-links.circle.small.colored.clearfix.margin-clear.text-right.animated-effect-1
                 %li.twitter

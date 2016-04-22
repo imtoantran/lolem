@@ -171,8 +171,8 @@
                   #navbar-collapse-1.collapse.navbar-collapse
                     / main-menu
                     %ul.nav.navbar-nav
-                      %li.active=link_to 'Trang chủ'
-                      %li=link_to(t("shoppe.services.services"),"#services")
+                      %li=link_to 'Trang chủ',:root
+                      %li=link_to(t("shoppe.services.services"),:services)
                       %li=link_to t('Shoppe.menu.blogs') ,posts_path
                     / main-menu end
                     / header dropdown buttons

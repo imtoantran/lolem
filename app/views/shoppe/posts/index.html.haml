@@ -1,14 +1,18 @@
 - @page_title = t("shoppe.posts.posts")
 
 = content_for :header do
+  %p.buttons
+    = link_to t('shoppe.posts.new_post'), :new_post, :class => 'button green'
   %h2.settings= t("shoppe.posts.posts")
 
 .table
   %table.data
     %thead
       %tr
+        %th= 'Hình ảnh'
         %th= t('shoppe.posts.title')
         %th= t('shoppe.posts.content')
+        %th= t('shoppe.posts.active')
     %tbody
       - if @posts.empty?
         %tr.empty
@@ -16,6 +20,11 @@
       - else
         - for post in @posts
           %tr
-            %td= link_to post.title, post
-            %td= link_to post.full_content, [:edit, post]
+            %td
+              -if post.default_image
+                =link_to [:edit,post] do
+                  =image_tag(post.default_image.path,:class=>'thumbnail image',:height=>'60')
+            %td= post.title
+            %td= link_to truncate(post.excerpt,length: 100), [:edit, post]
+            %td= check_box_tag 'post-'+post.id.to_s,post.title,post.active == 1 ? :checked : nil,disabled: true
 = paginate @posts

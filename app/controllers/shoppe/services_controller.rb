@@ -28,7 +28,7 @@ module Shoppe
     end
     def safe_params
       file_params = [:file, :parent_id, :role, :parent_type, :file => []]
-      params[:service].permit(:name, :excerpt, :description, :attachments => [:default_image => file_params], post_category_ids: [])
+      params[:service].permit(:name, :excerpt, :permalink, :price_promotion, :featured, :price, :active, :description, :attachments => [:default_image => file_params], post_category_ids: [])
     end
   end
 end

@@ -1,5 +1,8 @@
 - @page_title = t('shoppe.posts.edit')
 - content_for :header do
+  %p.buttons
+    = link_to t('shoppe.posts.new_post'), :new_post, :class => 'button green'
+    = link_to t('shoppe.posts.back_to_posts') , :posts, :class => 'button'
   %h2= t("shoppe.posts.edit")
 = tinymce_assets
 = render 'form'

@@ -5,5 +5,11 @@
   = render 'shared/service_list', :services=>@services
 - content_for :banner do
   = render 'shared/main_banner'
-
-/= render 'shared/product_list', :products => @products
+- content_for :bottom_a do
+  = render 'shared/core_feature'
+- content_for :bottom_b do
+  = render 'shared/offers'
+- content_for :bottom_c do
+  = render 'shared/choose_us'
+- content_for :bottom_d do
+  = render 'shared/what_offers'

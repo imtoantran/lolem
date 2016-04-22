@@ -21,5 +21,10 @@ class Service < ActiveRecord::Base
   def attachments=(attrs)
     if attrs["default_image"]["file"].present? then self.attachments.build(attrs["default_image"]) end
   end
-
+  # All active posts
+  scope :active, -> { where(active: true) }
+  validates :name, presence: true
+  validates :permalink, presence: true, uniqueness: true, permalink: true
+  # Before validation, set the permalink if we don't already have one
+  before_validation { self.permalink = name.parameterize if permalink.blank? && name.is_a?(String) }
 end

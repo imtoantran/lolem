@@ -14,8 +14,8 @@
           .image-box.style-2.mb-20.bordered.dark-bg
             .overlay-container.overlay-visible
               %img{:alt => "", :src => service.default_image ? service.default_image.path : ''}
-                %a.overlay-link{:href => "portfolio-item.html"}
-                  %i.fa.fa-link
+              =link_to service_path(service.permalink), class: 'overlay-link' do
+                %i.fa.fa-link
             .body
               %h3=service.name
               .separator-2
