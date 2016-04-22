@@ -1,0 +1,47 @@
+- active_nav_item :services
+- @page_title = 'shoppe.services.services'
+/ banner start
+/ ================
+.banner.video-background-banner.pv-40.dark-translucent-bg.hovered
+  / breadcrumb start
+  / ================
+  .container
+    .row
+      .col-md-8.text-center.col-md-offset-2.pv-20
+        %h2.title.object-non-visible{"data-animation-effect" => "fadeIn", "data-effect-delay" => "100"} Chúng tôi cung cấp những dịch vụ tốt nhất
+        .separator.object-non-visible.mt-10{"data-animation-effect" => "fadeIn", "data-effect-delay" => "100"}
+        %p.text-center.object-non-visible{"data-animation-effect" => "fadeIn", "data-effect-delay" => "100"} Mang lại vẻ đẹp hoàn hảo cho bạn
+/ banner end
+/ main-container start
+/ ================
+%section.main-container.border-clear.light-gray-bg.padding-bottom-clear
+  .container
+    .row
+      / main start
+      / ================
+      .main.col-md-12
+        / page-title start
+        / ================
+        %h1.page-title.text-center Dịch vụ của chúng tôi
+        / page-title end
+        -for service in @services
+          .image-box.space-top.style-4
+            .row.grid-space-0
+              .col-md-6
+                .overlay-container
+                  %img{:alt => service.name, :src => image_path(service.default_image ? service.default_image.path : 'service-1.jpg')}
+                    .overlay-to-top
+                      %p.small.margin-clear
+                        %em
+                          = service.name
+              .col-md-6
+                .body
+                  .pv-30.visible-lg
+                  %h3
+                    =link_to service.name,service_path(service.permalink)
+                  .separator-2
+                  %p.margin-clear= service.excerpt
+                  %br
+                    %a.btn.btn-gray-transparent.btn-sm.btn-animated.margin-clear{:href => service_path(service.permalink)}
+                      Xem
+                      %i.fa.fa-arrow-right.pl-10

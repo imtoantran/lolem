@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421074227) do
+ActiveRecord::Schema.define(version: 20160422073451) do
 
   create_table "nifty_attachments", force: :cascade do |t|
     t.integer  "parent_id"
@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 20160421074227) do
 
   create_table "post_categorizations", force: :cascade do |t|
     t.string   "post_id"
-    t.string   "integer"
     t.string   "post_category_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
@@ -390,5 +389,10 @@ ActiveRecord::Schema.define(version: 20160421074227) do
   end
 
   add_index "shoppe_users", ["email_address"], name: "index_shoppe_users_on_email_address"
+
+  create_table "tests", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

@@ -14,7 +14,7 @@
       %dt= f.label :excerpt, t('shoppe.posts.excerpt')
       %dd= f.text_area :excerpt, :class=>'text'
     %dl
-      %dd.checbok
+      %dd.checkbox
         = f.label :active, t('shoppe.posts.active')
         = f.check_box :active
   = f.text_area :description, :class => "tinymce", :rows => 20, :cols => 120

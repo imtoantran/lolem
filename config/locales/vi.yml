@@ -112,16 +112,16 @@ vi:
         password_confirmation: Xác nhận mật khẩu
     errors:
       template:
-        body: ! 'There were problems with the following fields:'
+        body: ! 'Đã xảy ra lỗi với nhứng trường sau đây:'
         header:
-          one: 1 error prohibited this %{model} from being saved
-          many: ! '%{count} errors prohibited this %{model} from being saved'
-          other: ! '%{count} errors prohibited this %{model} from being saved'
+          one: 1 lỗi đã xảy ra, %{model} không thể lưu
+          many: ! '%{count} lỗi đã xảy ra, %{model} không thể lưu'
+          other: ! '%{count} lỗi đã xảy ra, %{model} không thể lưu'
       models:
         shoppe/product_category:
           attributes:
             permalink:
-              wrong_format: "can only contain letters, numbers, - and _"
+              wrong_format: "chỉ chấp nhập chữ, số, - và _"
         shoppe/delivery:
           attributes:
             delivery_service_id:
@@ -143,7 +143,15 @@ vi:
               too_high_quantity: is too high for the quantity in stock
         shoppe/payment:
           refund_failed: "Refunds must be less than the payment (%{refundable_amount})"
-
+        service:
+          attributes:
+            name:
+              blank: Chưa nhập tên dịch vụ
+            permalink:
+              blank: Chưa nhập đường dẫn dịch vụ
+              wrong_format: Đường dẫn không đúng định dạng
+      messages:
+        record_invalid: Bản ghi không đúng định dạng
   will_paginate:
     next_label: "Next &#8594;"
     page_gap: "&hellip;"
@@ -272,7 +280,17 @@ vi:
       excerpt: Nội dung tóm tắt
       descriptions: Thông tin dịch vụ
       cost_price: Giá sản xuất
+      price_promotion: Giá khuyến mãi
       price: Giá dịch vụ
+      active: Đóng/Mở dịch vụ
+      submit: Lưu dịch vụ
+      back_to_services: Trở về danh sách dịch vụ
+      featured: Dịch vụ nổi bật
+      new_service: Thêm dịch vụ
+      active_true: Đang mở
+      active_false: Đã đóng
+      featured_true: Dịch vụ nổi bật
+      featured_false: Dịch vụ bình thường
     countries:
       back: Back to countries
       continent: Continent

@@ -10,16 +10,29 @@
       %dd=f.text_area :excerpt, :class=>'text'
     .splitContainer
       %dl.half
-        %dt= f.label :price_promotion, t('shoppe.services.price')
-        .moneyInput
-          .currency= Shoppe.settings.currency_unit.html_safe
-          = f.text_field :price_promotion, :class => 'text'
+        %dt= f.label :permalink, t('shoppe.posts.permalink')
+        %dd= f.text_field :permalink, :class=>'text'
       %dl.half
-        %dt= f.label :price_promotion, t('shoppe.services.cost_price')
+        .splitContainer
+          %dl.half
+            %dd.checkbox
+              =f.label :featured,t('shoppe.services.featured')
+              =f.check_box :featured
+          %dl.half
+            %dd.checkbox
+              =f.label :active,t('shoppe.services.active')
+              =f.check_box :active
+    .splitContainer
+      %dl.half
+        %dt= f.label :price, t('shoppe.services.price')
+        .moneyInput
+          .currency= Shoppe.settings.currency_unit.html_safe
+          = f.text_field :price, :class => 'text'
+      %dl.half
+        %dt= f.label :price_promotion, t('shoppe.services.price_promotion')
         .moneyInput
           .currency= Shoppe.settings.currency_unit.html_safe
           = f.text_field :price_promotion, :class => 'text'
-
   = f.text_area :description, :class => "tinymce", :rows => 20, :cols => 120
   = tinymce
   = field_set_tag t('shoppe.posts.attachments') do
@@ -36,7 +49,7 @@
         %dd
           = attachment_preview nil, hide_if_blank: false
           %p= f.file_field "attachments[extra][file]", :multiple => true
-          = f.hidden_field "attachments[extra][parent_type]", value: "Shoppe::Post"
+          = f.hidden_field "attachments[extra][parent_type]", value: "Service"
           = f.hidden_field "attachments[extra][parent_id]", value: @service.id
 
       - @service.attachments.each do |attachment|
@@ -44,10 +57,9 @@
           %dl.half
             %dd
               = attachment_preview attachment
-
-    %p.addAttachments= link_to t('shoppe.products.add_attachments') , '#', :data => {:behavior => 'addAttachmentToExtraAttachments'}, :class => 'button button-mini green'
+    -#%p.addAttachments= link_to t('shoppe.services.add_attachments') , '#', :data => {:behavior => 'addAttachmentToExtraAttachments'}, :class => 'button button-mini green'
   %p.submit
     - unless @service.new_record?
       %span.right= link_to t('shoppe.delete') , @service, :class => 'button purple', :method => :delete, :data => {:confirm => "Bạn có chắc chắn muốn xóa?"}
-    = f.submit t('shoppe.submit'),  :class => 'button green'
+    = f.submit t('shoppe.services.submit'),  :class => 'button green'
     = link_to t('shoppe.cancel'), :posts, :class => 'button'

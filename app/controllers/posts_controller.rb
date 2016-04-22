@@ -13,7 +13,6 @@ class PostsController < ApplicationController
     # @posts = @post_category.posts.includes(:product_categories, :variants).root.active
     @query = Post .ordered.page(params[:page]).search(params[:q])
     @posts = @query.result
-
   end
   
   def filter

@@ -2,8 +2,6 @@ class PostCategory < ActiveRecord::Base
   # All products within this category
   has_many :post_categorizations, dependent: :restrict_with_exception, class_name: 'PostCategorization', inverse_of: :post_category
   has_many :posts, class_name: 'Post', through: :post_categorizations
-  translates :name, :permalink, :description
-  scope :ordered, -> { includes(:translations).order(:name) }
   # Return attachment for the default_image role
   #
   # @return [String]
@@ -28,4 +26,23 @@ class PostCategory < ActiveRecord::Base
 
   # No descendants
   scope :except_descendants, ->(record) { where.not(id: (Array.new(record.descendants) << record).flatten) }
+  translates :name, :permalink, :description
+  scope :ordered, -> { includes(:translations).order(:name) }
+  private
+  def set_permalink
+    self.permalink = name.parameterize if permalink.blank? && name.is_a?(String)
+  end
+
+  def set_ancestral_permalink
+    permalinks = []
+    ancestors.each do |category|
+      permalinks << category.permalink
+    end
+    self.ancestral_permalink = permalinks.join '/'
+  end
+
+  def set_child_permalinks
+    children.each(&:save!)
+  end
+
 end
