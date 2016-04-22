@@ -253,6 +253,11 @@ vi:
       descriptions: Thông tin bài viết
       attachments: Hình ảnh
       default_image: Hình ảnh mặc định
+      active: Ẩn/Hiện bài viết
+      submit: Lưu
+      new_post: Bài viết mới
+      destroy_notice: Xóa bài viết thành công
+      back_to_posts: Quay lại danh sách bài viết
     post_category:
       choose_post_category: Chọn danh mục
       post_categories: Danh mục bài viết

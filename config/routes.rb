@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   #
   # Shoppe admin interface
   #
-  mount Shoppe::Engine => "/shopman"
+  mount Shoppe::Engine => "/admin"
 
   #
   # Product browising

@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  # has_permalink :title
   # All customers ordered by their ID desending
   scope :ordered, -> { order(id: :desc)}
   # Return attachment for the default_image role
@@ -37,5 +38,8 @@ class Post < ActiveRecord::Base
   end
   # All active posts
   scope :active, -> { where(active: true) }
-
+  validates :title, presence: true
+  validates :permalink, presence: true, uniqueness: true, permalink: true
+  # Before validation, set the permalink if we don't already have one
+  before_validation { self.permalink = title.parameterize if permalink.blank? && title.is_a?(String) }
 end

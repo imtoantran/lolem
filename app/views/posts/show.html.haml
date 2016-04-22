@@ -21,7 +21,8 @@
                   %i.icon-chat
           .blogpost-content
             %p.text-center
-              = image_tag @post.default_image.path, :alt => @post.title, :class => 'img-responsive img-thumbnail'
+              -if @post.default_image
+                = image_tag @post.default_image.path, :alt => @post.title, :class => 'img-responsive img-thumbnail'
             = markdown @post.description
           %footer.clearfix
             .tags.pull-left
