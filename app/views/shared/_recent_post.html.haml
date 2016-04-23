@@ -1,21 +1,22 @@
 -@posts = Post.all.order(updated_at: :desc).limit(5)
 %h2.title Bài viết mới
 .separator-2
--for post in @posts
-  .media.margin-clear
-    .media-left
-      .overlay-container
-        =image_tag(post.default_image ? post.default_image.path : '',:class=>'media-object')
-        %a.overlay-link.small{:href => post.permalink}
-          %i.fa.fa-link
-    .media-body
-      %h6.media-heading
-        = link_to truncate(post.title,length: 60), post_path(post.post_category.permalink,post.permalink)
-      %p.small.margin-clear
-        %i.fa.fa-calendar.pr-10>
-        #{post.updated_at.strftime("%H:%M %d - %m - %Y")}
-    %hr
-.text-right.space-top
-  %a.link-dark{:href => "blog-large-image-right-sidebar.html"}
-    %i.fa.fa-plus-circle.pl-5.pr-5>
-    Xem thêm
+-if !@posts.empty?
+  -for post in @posts
+    .media.margin-clear
+      .media-left
+        .overlay-container
+          =image_tag(post.default_image ? post.default_image.path : '',:class=>'media-object')
+          %a.overlay-link.small{:href => post.permalink}
+            %i.fa.fa-link
+      .media-body
+        %h6.media-heading
+          = link_to truncate(post.title,length: 60), post_path(post.post_category.permalink,post.permalink)
+        %p.small.margin-clear
+          %i.fa.fa-calendar.pr-10>
+          #{post.updated_at.strftime("%H:%M %d - %m - %Y")}
+      %hr
+  .text-right.space-top
+    %a.link-dark{:href => "blog-large-image-right-sidebar.html"}
+      %i.fa.fa-plus-circle.pl-5.pr-5>
+      Xem thêm

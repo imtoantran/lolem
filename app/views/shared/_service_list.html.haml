@@ -9,17 +9,18 @@
         %p.large.text-center Ai bảo gái Phan Thiết không trắng???
         %p=image_tag("logo.png",:class => "center-block")
         %p Với công nghệ hấp trắng Hàn Quốc độc quyền tại Lọ Lem Spa mang đến cho các bạn gái Phan Thiết làn da trắng nổi bật, trắng rạng rỡ ko trắng ko lấy tiền .Cam kết trắng hoàn hảo 100%. Làn da trắng không còn là trở ngại khó khăn nữa đâu nhé. Công nghệ độc quyền, máy móc hiện đại mang đến cho các bạn vẻ ngoài thay đổi vượt trội.
-      -for service in services
-        .col-sm-6
-          .image-box.style-2.mb-20.bordered.dark-bg
-            .overlay-container.overlay-visible
-              %img{:alt => "", :src => service.default_image ? service.default_image.path : ''}
-              =link_to service_path(service.permalink), class: 'overlay-link' do
-                %i.fa.fa-link
-            .body
-              %h3= service.name
-              .separator-2
-              %p.text-muted=service.excerpt
-              %a.btn.btn-gray-transparent.btn-animated.btn-sm.margin-clear{:href => "#"}
-                Xem
-                %i.fa.fa-arrow-right.pl-10
+        - if !services.empty?
+          - for service in services
+            .col-sm-6
+              .image-box.style-2.mb-20.bordered.dark-bg
+                .overlay-container.overlay-visible
+                  %img{:alt => "", :src => service.default_image ? service.default_image.path : ''}
+                  =link_to service_path(service.permalink), class: 'overlay-link' do
+                    %i.fa.fa-link
+                .body
+                  %h3= service.name
+                  .separator-2
+                  %p.text-muted=service.excerpt
+                  %a.btn.btn-gray-transparent.btn-animated.btn-sm.margin-clear{:href => "#"}
+                    Xem
+                    %i.fa.fa-arrow-right.pl-10
