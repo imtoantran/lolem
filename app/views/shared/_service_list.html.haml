@@ -17,11 +17,8 @@
               =link_to service_path(service.permalink), class: 'overlay-link' do
                 %i.fa.fa-link
             .body
-              %h3=service.name
+              %h3= service.name
               .separator-2
-              %p.small.mb-10
-                %i.icon-calendar
-                Feb, 2015
               %p.text-muted=service.excerpt
               %a.btn.btn-gray-transparent.btn-animated.btn-sm.margin-clear{:href => "#"}
                 Xem

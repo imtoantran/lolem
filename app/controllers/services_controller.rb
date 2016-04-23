@@ -8,7 +8,7 @@ class ServicesController < ApplicationController
 
   end
   def index
-    @query = Service .ordered.page(params[:page]).search(params[:q])
+    @query = Service.active.ordered.page(params[:page]).search(params[:q])
     @services = @query.result
   end
 end
